@@ -1,0 +1,3 @@
+# this file contains examples for scripts used in project
+[acp.py script examples] :
+--script acp.py -i eth1 -t1 192.168.1.50 -t2 192.168.1.20
