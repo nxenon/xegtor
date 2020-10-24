@@ -143,13 +143,12 @@ def print_parser_help():
 
 # define parser and its arguments
 parser = ArgumentParser(usage='sudo python3 %(prog)s --script acp.py [--script-help or -sh for help] [-i Interface] [-t1 TARGET 1] [-t2 TARGET 2]')
-# add script argument for not raising (unrecognized arguments) error
-parser.add_argument('--script')
+
 parser.add_argument('--script-help','-sh',help='Show Script Help',action='store_true')
 parser.add_argument('-i',help='Interface Using In Attack',metavar='')
 parser.add_argument('-t1',help='First Target For Attack',metavar='')
 parser.add_argument('-t2',help='Second Target For Attack',metavar='')
-args = parser.parse_args()
+args ,unknown = parser.parse_known_args()
 
 if ((args.script_help is not None) and (args.script_help is True)):
     print_parser_help()
