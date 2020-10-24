@@ -26,4 +26,4 @@ Scripts
 
 Contribution
 ----
-I will be happy if anyone contributes in this project :smile:
+I will be happy if anyone wants to contribute in this project :smile:
