@@ -11,12 +11,8 @@ def parse_args():
     parser.add_argument('--script',help='Script Name To Choose',metavar='script_name')
     parser.add_argument('--show-scripts',help='Show Scripts Names',action='store_true')
     parser.add_argument('--show-examples',help='Show Some Examples',action='store_true')
-    # arguments for scripts
-    parser.add_argument('--script-help', '-sh', help='', action='store_true')
-    parser.add_argument('-i', help='Interface Using In Attack', metavar='')
-    parser.add_argument('-t1', help='First Target For Attack', metavar='')
-    parser.add_argument('-t2', help='Second Target For Attack', metavar='')
-    args = parser.parse_args()
+
+    args ,unknown = parser.parse_known_args()
 
     # check argument passed
     if ((args.script is not None) and (args.script in scripts_name_all)):
