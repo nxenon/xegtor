@@ -1,5 +1,9 @@
 # Scripts
 
+Scripts Usage
+----
+    sudo python3 xegtor.py --script script_name [arguments]
+
 Arp Cache Poisoning Scripts
 ----
 `acp.py` [![Link]()](https://github.com/xenon-xenon/xegtor/blob/master/scripts/acp.py)
