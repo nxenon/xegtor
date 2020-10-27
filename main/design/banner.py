@@ -1,8 +1,5 @@
 #!/usr/bin/env python3
 
-from main.design.arg_options import parse_args
-from main.design.notes import print_notes
-
 from colorama import Fore
 
 # Version
@@ -22,5 +19,3 @@ banner_logo = line_1 + "\n" + line_2 + "\n" + line_3 + "\n" + line_4 + "\n" + li
 
 def print_banner():
     print(banner_logo)
-    print_notes()
-    parse_args()

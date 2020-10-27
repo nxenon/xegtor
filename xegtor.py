@@ -12,7 +12,7 @@ https://github.com/xenon-xenon/xegtor
            |___/
 '''
 
-from main.design.banner import print_banner
+from main.core import start
 
 if __name__ == "__main__" :
-    print_banner()
+    start.start() # start program function
