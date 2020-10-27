@@ -48,13 +48,9 @@ class ArpSpoof:
         try:
             self.interface_mac = get_if_hwaddr(self.local_interface)
         except ValueError :
-            parser.print_help()
-            print('\n')
             print('Invalid interface name --> ' + self.local_interface)
             exit()
         except OSError :
-            parser.print_help()
-            print('\n')
             print('Invalid interface name --> ' + self.local_interface)
             exit()
 
@@ -70,8 +66,6 @@ class ArpSpoof:
 
         except OSError :
             # ip validation
-            parser.print_help()
-            print('\n')
             print('Invalid IP address --> ' + self.target1_ip)
             exit()
 
@@ -84,8 +78,6 @@ class ArpSpoof:
 
         except OSError :
             # ip validation
-            parser.print_help()
-            print('\n')
             print('Invalid IP address --> ' + self.target2_ip)
             exit()
 
@@ -142,7 +134,7 @@ def print_parser_help():
 
 
 # define parser and its arguments
-parser = ArgumentParser(usage='sudo python3 %(prog)s --script acp.py [--script-help or -sh for help] [-i Interface] [-t1 TARGET 1] [-t2 TARGET 2]')
+parser = ArgumentParser(usage='sudo python3 %(prog)s --script acp.py [--script-help or -sh for help] [-i Interface] [-t1 TARGET 1] [-t2 TARGET 2]',allow_abbrev=False)
 
 parser.add_argument('--script-help','-sh',help='Show Script Help',action='store_true')
 parser.add_argument('-i',help='Interface Using In Attack',metavar='')
