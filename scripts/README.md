@@ -13,6 +13,15 @@ Arguments:
 - `-t1` target 1
 - `-t2` target 2
 
+ARP Ping
+----
+scan hosts in network with ARP
+
+`arp_ping.py` [![Link]()](https://github.com/xenon-xenon/xegtor/blob/master/scripts/arp_ping.py)
+
+Arguments:
+- `--range` ip_range [e.g. 192.168.1.0/24]
+
 Examples
 ----
 - [![Scripts Examples File]()](https://github.com/xenon-xenon/xegtor/blob/master/scripts/examples.txt)

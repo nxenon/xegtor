@@ -7,3 +7,5 @@ class ScriptManager:
     def run_script(self):
         if self.script_name == 'acp.py':
             import scripts.acp
+        elif self.script_name == 'arp_ping.py':
+            import scripts.arp_ping
