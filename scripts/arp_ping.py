@@ -35,7 +35,7 @@ class ArpPing:
         dest = 'ff:ff:ff:ff:ff:ff'
         print('Scanning... --> timeout : ' + str(self.timeout) + ' secs')
         ans, unans = srp(Ether(dst=dest) / ARP(pdst=self.ip_range), timeout=self.timeout,verbose=1)
-        ans.summary(lambda s,r: r.sprintf("IP : %ARP.psrc% ,Mac : %Ether.src%"))
+        ans.summary(lambda s_r: s_r[1].sprintf("IP : %ARP.psrc% ,Mac : %Ether.src%"))
 
 
 def print_parser_help():
