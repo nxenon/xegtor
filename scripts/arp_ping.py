@@ -10,8 +10,14 @@ from scapy.layers.l2 import ARP
 from argparse import ArgumentParser
 
 class ArpPing:
-    def __init__(self, ip_range):
+    def __init__(self ,ip_range ,timeout):
         self.ip_range = ip_range
+        try:
+            self.timeout = float(timeout)
+        except ValueError :
+            print()
+            print('error : timeout must be float or integer e.g 3.5 [--script-help or -sh for help]')
+            exit()
 
     def start(self):
         self.check_range()
@@ -27,8 +33,8 @@ class ArpPing:
 
     def run_arp_ping(self):
         dest = 'ff:ff:ff:ff:ff:ff'
-        print('Scanning....')
-        ans, unans = srp(Ether(dst=dest) / ARP(pdst=self.ip_range), timeout=3.5,verbose=0)
+        print('Scanning... --> timeout : ' + str(self.timeout) + ' secs')
+        ans, unans = srp(Ether(dst=dest) / ARP(pdst=self.ip_range), timeout=self.timeout,verbose=1)
         ans.summary(lambda s,r: r.sprintf("IP : %ARP.psrc% ,Mac : %Ether.src%"))
 
 
@@ -37,13 +43,15 @@ def print_parser_help():
 optional arguments:
   --script-help, -sh  Show Script Help
   --range x.x.x.x/yy  Range To Scan
+  --timeout default 3.5 secs  Time Out For Scan
     '''
     print(help_text)
 
 
-parser = ArgumentParser(usage='sudo python3 %(prog)s --script arp_ping.py [--script-help or -sh for help] [--range network_range]',allow_abbrev=False)
+parser = ArgumentParser(usage='sudo python3 %(prog)s --script arp_ping.py [--script-help or -sh for help] [--range network_range] [--timeout secs]',allow_abbrev=False)
 parser.add_argument('--script-help','-sh',help='Show Script Help',action='store_true',)
 parser.add_argument('--range',help='Range To Scan',metavar='x.x.x.x/yy')
+parser.add_argument('--timeout',help='Time Out For Scan',metavar='default : 3.5 secs',default=3.5)
 args ,unknown = parser.parse_known_args()
 
 if ((args.script_help is not None) and (args.script_help is True)):
@@ -55,5 +63,5 @@ else:
     parser.print_usage()
     exit()
 
-arp_ping = ArpPing(args.range)
+arp_ping = ArpPing(args.range,args.timeout)
 arp_ping.start()

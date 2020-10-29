@@ -21,6 +21,7 @@ scan hosts in network with ARP
 
 Arguments:
 - `--range` ip_range [e.g. 192.168.1.0/24]
+- `--timeout` secs (default 3.5)
 
 Examples
 ----
