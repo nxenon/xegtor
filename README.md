@@ -23,7 +23,3 @@ Usage
 Scripts
 ----
 - [![Scripts README]()](https://github.com/xenon-xenon/xegtor/blob/master/scripts/README.md)
-
-Contribution
-----
-I will be happy if anyone wants to contribute in this project :smile:
