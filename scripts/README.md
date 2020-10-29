@@ -6,6 +6,8 @@ Scripts Usage
 
 ARP Cache Poisoning Scripts
 ----
+perform arp cache poisoning for MITM
+
 `acp.py` [![Link]()](https://github.com/xenon-xenon/xegtor/blob/master/scripts/acp.py)
 
 Arguments:
@@ -22,6 +24,15 @@ scan hosts in network with ARP
 Arguments:
 - `--range` ip_range [e.g. 192.168.1.0/24]
 - `--timeout` secs (default 3.5)
+
+ICMP Ping
+----
+scan hosts in network with ICMP
+
+`icmp_ping.py` [![Link]()](https://github.com/xenon-xenon/xegtor/blob/master/scripts/icmp_ping.py)
+
+Arguments:
+- `--range` ip_range [e.g. 192.168.1.0/24]
 
 Examples
 ----

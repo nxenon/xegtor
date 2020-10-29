@@ -3,3 +3,5 @@
 --script acp.py -i eth1 -t1 192.168.1.50 -t2 192.168.1.20
 [arp_ping.py examples] :
 --script arp_ping.py --range 192.168.1.0/24 --timeout 3.5
+[icmp_ping.py examples] :
+--script icmp_ping.py --range 192.168.1.0/24

@@ -9,3 +9,5 @@ class ScriptManager:
             import scripts.acp
         elif self.script_name == 'arp_ping.py':
             import scripts.arp_ping
+        elif self.script_name == 'icmp_ping.py':
+            import scripts.icmp_ping

@@ -1,3 +1,4 @@
 # this file contains scripts name with a description
 acp.py:::ARP Cache Poisoning
 arp_ping.py:::ARP Network Scan
+icmp_ping.py:::ICMP Network Scan
