@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 '''
-this scripts checks os information
+this script checks os information
 '''
 
 import sys
