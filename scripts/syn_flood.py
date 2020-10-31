@@ -54,6 +54,7 @@ class SynFlood:
                 exit()
             else:
                 self.ports_in_attack = list(range(port_start,port_end + 1))
+                print('ports : ' + str(port_start) + ' to ' + str(port_end))
 
         else: # for single port
             try :
