@@ -7,3 +7,5 @@
 --script icmp_ping.py --range 192.168.1.0/24
 [syn_flood.py examples] :
 --script syn_flood.py --target 192.168.1.20 --port 80,22
+[tcp_ps_syn.py examples] :
+--script tcp_ps_syn.py --target 192.168.1.1 --port 1-1024 --timeout 0.2

@@ -13,5 +13,7 @@ class ScriptManager:
             import scripts.icmp_ping
         elif self.script_name == 'syn_flood.py':
             import scripts.syn_flood
+        elif self.script_name == 'tcp_ps_syn.py':
+            import scripts.tcp_ps_syn
         else:
             print('error : invalid script name [-h for help] [--show-scripts to show scripts names]')

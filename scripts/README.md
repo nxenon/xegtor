@@ -44,6 +44,17 @@ Arguments:
 - `--target` TARGET
 - `--port` PORT(S) [e.g. 80 or 80,22 or 80-90]
 
-Examples
+# Port Scanners :
+TCP Syn Port Scanner
 ----
+this script performs port scanning with TCP (`syn `method)
+
+`tcp_ps_syn.py` [![Link]()](https://github.com/xenon-xenon/xegtor/blob/master/scripts/tcp_ps_syn.py)
+
+Arguments:
+- `--target` TARGET **(required)**
+- `--port` PORT(S) [e.g. 80 or 80,22 or 80-90] **(required)**
+- `--timeout` secs (default `0.1`)
+
+# Examples
 - [![Scripts Examples File]()](https://github.com/xenon-xenon/xegtor/blob/master/scripts/examples.txt)
