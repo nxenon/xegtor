@@ -11,5 +11,7 @@ class ScriptManager:
             import scripts.arp_ping
         elif self.script_name == 'icmp_ping.py':
             import scripts.icmp_ping
+        elif self.script_name == 'syn_flood.py':
+            import scripts.syn_flood
         else:
             print('error : invalid script name [-h for help] [--show-scripts to show scripts names]')

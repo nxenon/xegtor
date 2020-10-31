@@ -34,6 +34,16 @@ scan hosts in network with ICMP
 Arguments:
 - `--range` ip_range [e.g. 192.168.1.0/24]
 
+Syn Flood
+----
+this script performs syn flood attack
+
+`syn_flood.py` [![Link]()](https://github.com/xenon-xenon/xegtor/blob/master/scripts/syn_flood.py)
+
+Arguments:
+- `--target` TARGET
+- `--port` PORT(S) [e.g. 80 or 80,22 or 80-90]
+
 Examples
 ----
 - [![Scripts Examples File]()](https://github.com/xenon-xenon/xegtor/blob/master/scripts/examples.txt)
