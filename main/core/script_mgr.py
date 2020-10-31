@@ -5,8 +5,8 @@ class ScriptManager:
         self.script_name = script_name
 
     def run_script(self):
-        if self.script_name == 'acp.py':
-            import scripts.acp
+        if self.script_name == 'arp_spoof.py':
+            import scripts.arp_spoof
         elif self.script_name == 'arp_ping.py':
             import scripts.arp_ping
         elif self.script_name == 'icmp_ping.py':

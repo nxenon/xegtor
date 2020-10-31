@@ -8,7 +8,7 @@ ARP Cache Poisoning Scripts
 ----
 perform arp cache poisoning for MITM
 
-`acp.py` [![Link]()](https://github.com/xenon-xenon/xegtor/blob/master/scripts/acp.py)
+`arp_spoof.py` [![Link]()](https://github.com/xenon-xenon/xegtor/blob/master/scripts/arp_spoof.py)
 
 Arguments:
 - `-i` interface name

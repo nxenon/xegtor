@@ -1,9 +1,7 @@
 #!/usr/bin/env python3
 
 '''
-This script is for ARP cache poisoning attack
-note : You have to run this script with root privileges
-note : You should have enabled ip forwarding on your machine
+this script performs ARP cache poisoning attack
 '''
 
 from scapy.all import *
@@ -97,7 +95,6 @@ class ArpSpoof:
                 self.restore_arp_spoof()
                 exit()
 
-
     def restore_arp_spoof(self):
         '''restore arp tables of the target machines'''
 
@@ -121,7 +118,6 @@ class ArpSpoof:
             exit()
 
 
-
 def print_parser_help():
     help_text = '''
     optional arguments:
@@ -134,7 +130,7 @@ def print_parser_help():
 
 
 # define parser and its arguments
-parser = ArgumentParser(usage='sudo python3 %(prog)s --script acp.py [--script-help or -sh for help] [-i Interface] [-t1 TARGET 1] [-t2 TARGET 2]',allow_abbrev=False)
+parser = ArgumentParser(usage='sudo python3 %(prog)s --script arp_spoof.py [--script-help or -sh for help] [-i Interface] [-t1 TARGET 1] [-t2 TARGET 2]',allow_abbrev=False)
 
 parser.add_argument('--script-help','-sh',help='Show Script Help',action='store_true')
 parser.add_argument('-i',help='Interface Using In Attack',metavar='')

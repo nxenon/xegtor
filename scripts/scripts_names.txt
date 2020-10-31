@@ -1,5 +1,5 @@
 # this file contains scripts names with a description
-acp.py:::ARP Cache Poisoning
+arp_spoof.py:::ARP Cache Poisoning
 arp_ping.py:::ARP Network Scan
 icmp_ping.py:::ICMP Network Scan
 syn_flood.py:::Syn Flood Attack
