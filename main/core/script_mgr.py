@@ -11,3 +11,5 @@ class ScriptManager:
             import scripts.arp_ping
         elif self.script_name == 'icmp_ping.py':
             import scripts.icmp_ping
+        else:
+            print('error : invalid script name [-h for help] [--show-scripts to show scripts names]')
