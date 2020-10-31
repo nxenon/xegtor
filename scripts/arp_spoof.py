@@ -122,9 +122,9 @@ def print_parser_help():
     help_text = '''
     optional arguments:
   --script-help, -sh  Show This Help Message And Exit
-  -i                  Interface Using In Attack
-  -t1                 First Target For Attack
-  -t2                 Second Target For Attack
+  -i                  Interface Using In Attack *
+  -t1                 First Target For Attack *
+  -t2                 Second Target For Attack *
     '''
     print(help_text)
 

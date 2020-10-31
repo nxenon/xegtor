@@ -49,7 +49,7 @@ def print_parser_help():
     help_text = '''
 optional arguments:
   --script-help, -sh  Show Script Help
-  --range x.x.x.x/yy  Range To Scan
+  --range x.x.x.x/yy  Range To Scan *
     '''
     print(help_text)
 

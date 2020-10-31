@@ -96,8 +96,8 @@ def print_parser_help():
     help_text = '''
 optional arguments:
   --script-help, -sh           Show Script Help
-  --target, -t                 Target To Attack
-  --port, -p   x,y,z or x-z    Port Numbers To Attack
+  --target, -t                 Target To Attack *
+  --port, -p   x,y,z or x-z    Port Numbers To Attack *
     '''
     print(help_text)
 

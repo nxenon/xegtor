@@ -11,9 +11,9 @@ perform arp cache poisoning for MITM
 `arp_spoof.py` [![Link]()](https://github.com/xenon-xenon/xegtor/blob/master/scripts/arp_spoof.py)
 
 Arguments:
-- `-i` interface name
-- `-t1` target 1
-- `-t2` target 2
+- `-i` interface name **(required)**
+- `-t1` target 1 **(required)**
+- `-t2` target 2 **(required)**
 
 ARP Ping
 ----
@@ -22,7 +22,7 @@ scan hosts in network with ARP
 `arp_ping.py` [![Link]()](https://github.com/xenon-xenon/xegtor/blob/master/scripts/arp_ping.py)
 
 Arguments:
-- `--range` ip_range [e.g. 192.168.1.0/24]
+- `--range` ip_range [e.g. 192.168.1.0/24] **(required)**
 - `--timeout` secs (default 3.5)
 
 ICMP Ping
@@ -32,7 +32,7 @@ scan hosts in network with ICMP
 `icmp_ping.py` [![Link]()](https://github.com/xenon-xenon/xegtor/blob/master/scripts/icmp_ping.py)
 
 Arguments:
-- `--range` ip_range [e.g. 192.168.1.0/24]
+- `--range` ip_range [e.g. 192.168.1.0/24] **(required)**
 
 Syn Flood
 ----
@@ -41,8 +41,8 @@ this script performs syn flood attack
 `syn_flood.py` [![Link]()](https://github.com/xenon-xenon/xegtor/blob/master/scripts/syn_flood.py)
 
 Arguments:
-- `--target` TARGET
-- `--port` PORT(S) [e.g. 80 or 80,22 or 80-90]
+- `--target` TARGET **(required)**
+- `--port` PORT(S) [e.g. 80 or 80,22 or 80-90] **(required)**
 
 # Port Scanners :
 TCP Syn Port Scanner
