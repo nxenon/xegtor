@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="icon" type="image/png" href="./static/img/title_logo.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Login</title>
+    <link rel="stylesheet" href="./static/css/login.css">
+</head>
+<body>
+<div class="top-bar">
+    <h2 style="font-size: 30px">Xegtor<br></h2>
+</div>
+<br>
+<form action="/check_login" method="post">
+    <div class="container">
+        <h2>Login Form</h2>
+        <label for="uname"><b>Username</b></label>
+        <input type="text" placeholder="Enter Username" name="user" required>
+        <br>
+        <label for="psw"><b>Password</b></label>
+        <input type="password" placeholder="Enter Password" name="passw" required>
+        <br>
+        <button class="login-button" style="font-size: 20px" type="submit">Login</button>
+        <br>
+        <br>
+        <span class="psw">Forgot <a href="/forgotpass" target="_blank">password?</a></span>
+    </div>
+    {to_replace_error}
+</form>
+
+</body>
+</html>

@@ -8,6 +8,7 @@ scripts_name_all = [] # this list contains all of scripts name for existence che
 
 def parse_args():
     parser = argparse.ArgumentParser(usage='sudo python3 %(prog)s --script script_name [options]' + '\n help: sudo python3 %(prog)s --help')
+    parser.add_argument('--gui',help='Start GUI Web Interface',action='store_true')
     parser.add_argument('--script',help='Script Name To Choose',metavar='script_name')
     parser.add_argument('--show-scripts',help='Show Scripts Names',action='store_true')
     parser.add_argument('--show-examples',help='Show Some Examples',action='store_true')
@@ -15,7 +16,10 @@ def parse_args():
     args ,unknown = parser.parse_known_args()
 
     # check argument passed
-    if ((args.script is not None) and (args.script in scripts_name_all)):
+    if (args.gui):
+        import GUI.main
+        return
+    elif ((args.script is not None) and (args.script in scripts_name_all)):
         send_script(script_name=args.script) # send to process script
 
     elif ((args.script is not None) and (args.script not in scripts_name_all)) :
