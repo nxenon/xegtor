@@ -13,7 +13,7 @@ Screenshots
 Installation
 ----
     git clone https://github.com/xenon-xenon/xegtor.git
-    
+    cd xegtor
     pip3 install -r requirements.txt
     
 Usage
