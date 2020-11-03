@@ -1,5 +1,6 @@
 body {
   font-family: 'Lato', sans-serif;
+  background-color : #dadfea;
 }
 .logout-button {
         border: 3px solid #9ec9d4;
@@ -55,6 +56,11 @@ body {
   right: 35px;
   }
 }
+
+.top-bar {
+        text-align : center;
+        border-radius: 70px;
+    }
 
 .user-label {
     padding : 0 0 0 50px;

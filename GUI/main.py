@@ -64,9 +64,40 @@ def logout():
 def forgot_password():
     return redirect('https://github.com/xenon-xenon/xegtor/blob/master/docs/forgotpass.md',code=302)
 
+@app_main.route('/scripts')
+def scripts():
+    is_reset = check_reset()
+    if (is_reset):
+        return is_reset
+    from GUI.functions.scripts import scripts
+    scripts = scripts()
+    return scripts
+
+@app_main.route('/docs')
+def docs():
+    is_reset = check_reset()
+    if (is_reset):
+        return is_reset
+    from GUI.functions.docs import docs
+    return docs()
+
+@app_main.route('/attack',methods=['GET'])
+def attack():
+    is_reset = check_reset()
+    if (is_reset):
+        return is_reset
+    from GUI.functions.attack import attack
+    attack = attack()
+    return attack
+
 @app_main.errorhandler(404)
 def page_not_found(e):
     return render_template('404_error.html'), 404
+
+@app_main.after_request
+def add_header(response):
+    response.headers['Cache-Control'] = 'no-cache'
+    return response
 
 def check_reset():
     # if server is restarted then the cookies are cleared

@@ -34,7 +34,7 @@ class CheckLogin:
             return redirect('/login?error=nof') # nof is for no credential found in config.json
 
     def check_login(self):
-        if ((self.username_in_app == self.username_in_login) and (self.password_in_app == self.password_in_login)):
+        if ((self.username_in_app.lower() == self.username_in_login.lower()) and (self.password_in_app == self.password_in_login)):
             response = make_response(redirect('/dashboard',code=302))
             response.set_cookie('user',self.username_in_app,max_age=3600)
             response.set_cookie('logged_in','yes',max_age=3600)
