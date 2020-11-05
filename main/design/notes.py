@@ -1,7 +1,9 @@
 #!/usr/bin/env python3
 
-note_1 = '''***You have to run this script with root privileges***'''
-note_2 = '''***You should have enabled ip forwarding on your machine***'''
+from colorama import Fore
+
+note_1 = Fore.RED + '*** ' + Fore.RESET + 'You have to run this script with root privileges' + Fore.RED + ' ***' + Fore.RESET
+note_2 = Fore.RED + '*** ' + Fore.RESET + 'You should have enabled ip forwarding on your machine' + Fore.RED + ' ***' + Fore.RESET
 
 notes = note_1 + '\n' + note_2
 
