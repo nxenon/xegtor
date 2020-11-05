@@ -7,7 +7,7 @@ from sys import argv
 scripts_name_all = [] # this list contains all of scripts name for existence checking in --script script_name parameter
 
 def parse_args():
-    parser = argparse.ArgumentParser(usage='sudo python3 %(prog)s --script script_name [options]' + '\n help: sudo python3 %(prog)s --help')
+    parser = argparse.ArgumentParser(usage='sudo python3 %(prog)s --script script_name [options]' + '\n help: sudo python3 %(prog)s --help' + '\n  GUI: sudo python3 %(prog)s --gui')
     parser.add_argument('--gui',help='Start GUI Web Interface',action='store_true')
     parser.add_argument('--script',help='Script Name To Choose',metavar='script_name')
     parser.add_argument('--show-scripts',help='Show Scripts Names',action='store_true')
