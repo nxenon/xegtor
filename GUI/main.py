@@ -90,13 +90,22 @@ def attack():
     attack = attack()
     return attack
 
-@app_main.errorhandler(404)
+@app_main.route('/perform_attack',methods=['get'])
+def perform_attack():
+    is_reset = check_reset()
+    if (is_reset):
+        return is_reset
+    from GUI.functions.perform_attack import perform_attack
+    perform_attack = perform_attack()
+    return perform_attack
+
+app_main.errorhandler(404)
 def page_not_found(e):
     return render_template('404_error.html'), 404
 
 @app_main.after_request
 def add_header(response):
-    response.headers['Cache-Control'] = 'no-cache'
+    response.headers['Cache-Control'] = 'no-cache' # tell browser not to cache contents
     return response
 
 def check_reset():

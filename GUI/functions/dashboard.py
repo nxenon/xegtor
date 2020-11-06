@@ -13,7 +13,7 @@ class Dashboard():
     def run(self):
         if (request.cookies.get('logged_in') == 'yes') :
             page = self.read_page()
-            page = page.replace('{to_replace_username}',request.cookies.get('user').capitalize())
+            page = page.replace('{to_replace_username}',request.cookies.get('user').title())
             page = page.replace('{to_replace_text}','')
             return page
         else:
