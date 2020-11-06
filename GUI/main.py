@@ -99,7 +99,7 @@ def perform_attack():
     perform_attack = perform_attack()
     return perform_attack
 
-app_main.errorhandler(404)
+@app_main.errorhandler(404)
 def page_not_found(e):
     return render_template('404_error.html'), 404
 
