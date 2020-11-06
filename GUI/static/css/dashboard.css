@@ -66,6 +66,13 @@ body {
     padding : 0 0 0 50px;
 	text-align:right ;
 	}
+
 fa{
     padding: 0 50px 0 0 ;
     }
+
+table.center {
+    width : 80%;
+    margin-left : auto;
+    margin-right: auto;
+}
