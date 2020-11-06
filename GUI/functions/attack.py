@@ -23,13 +23,13 @@ def show_options(script):
         for a in args_list :
             if (args[a] == '*') : # if the argument is required
                 option_text += '<label>' + a.title() + ' </label>'
-                option_text += '<input style="font-size : 25px" type="text" placeholder="Enter ' + a.title() + '"' + 'name="' + a + '" required><br>'
+                option_text += '<input style="font-size : 25px" type="text" placeholder="Enter ' + a.title() + '"' + 'name="' + a + '" required><br><br>'
             else:
                 option_text += '<label>' + a.title() + ' </label>'
-                option_text += '<input style="font-size : 25px" type="text" placeholder="' + args[a].title() + '"' + 'name="' + a + '"><br>'
+                option_text += '<input style="font-size : 25px" type="text" placeholder="' + args[a].title() + '"' + 'name="' + a + '"><br><br>'
 
-    option_text += '''
-    <button style="font-size: 20px" type="submit">start</button>
+    option_text += '''<br>
+    <button class="button-attack">Start</button>
     </div>
     </form>
     '''
