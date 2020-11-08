@@ -1,3 +1,4 @@
-{"xegtor" : [
-  {"user":"root","pass":"root"}
-]}
+{
+  "__comment__" : "this file contains main configuration of GUI web interface",
+  "xegtor" : [{"user":"root","pass":"root"}]
+}
