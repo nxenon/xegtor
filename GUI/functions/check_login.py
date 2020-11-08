@@ -26,8 +26,8 @@ class CheckLogin:
     def read_login(self):
         file = open('GUI/config.json','r')
         data = json.load(file)
-        self.username_in_app = data['xegtor'][0]['user']
-        self.password_in_app = data['xegtor'][0]['pass']
+        self.username_in_app = data['credentials'][0]['user']
+        self.password_in_app = data['credentials'][0]['pass']
         if ((self.username_in_app) and (self.password_in_app)):
             pass
         else:
