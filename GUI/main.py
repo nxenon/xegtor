@@ -90,7 +90,7 @@ def attack():
     attack = attack()
     return attack
 
-@app_main.route('/perform_attack',methods=['get'])
+@app_main.route('/perform_attack',methods=['GET'])
 def perform_attack():
     is_reset = check_reset()
     if (is_reset):
