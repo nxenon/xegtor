@@ -26,7 +26,7 @@ def show_options(script):
                 option_text += '<input style="font-size : 25px" type="text" placeholder="Enter ' + a.title() + '"' + 'name="' + a + '" required><br><br>'
             else:
                 option_text += '<label>' + a.title() + ' </label>'
-                option_text += '<input style="font-size : 25px" type="text" placeholder="' + args[a].title() + '"' + 'name="' + a + '"><br><br>'
+                option_text += '<input style="font-size : 25px" type="text" placeholder="' + args[a][0].title() + '"' + 'name="' + a + '"><br><br>'
 
     option_text += '''<br>
     <button class="button-attack">Start</button>
