@@ -11,9 +11,9 @@ perform arp cache poisoning for MITM
 `arp_spoof.py` [![Link]()](https://github.com/xenon-xenon/xegtor/blob/master/scripts/arp_spoof.py)
 
 Arguments:
-- `-i` interface name **(required)**
-- `-t1` target 1 **(required)**
-- `-t2` target 2 **(required)**
+- `--interface` interface name **(required)**
+- `--target1` target 1 **(required)**
+- `--target2` target 2 **(required)**
 
 ARP Ping
 ----

@@ -122,31 +122,31 @@ def print_parser_help():
     help_text = '''
     optional arguments:
   --script-help, -sh  Show This Help Message And Exit
-  -i                  Interface Using In Attack *
-  -t1                 First Target For Attack *
-  -t2                 Second Target For Attack *
+  --interface               Interface Using In Attack *
+  --target1                 First Target For Attack *
+  --target2                 Second Target For Attack *
     '''
     print(help_text)
 
 
 # define parser and its arguments
-parser = ArgumentParser(usage='sudo python3 %(prog)s --script arp_spoof.py [--script-help or -sh for help] [-i Interface] [-t1 TARGET 1] [-t2 TARGET 2]',allow_abbrev=False)
+parser = ArgumentParser(usage='sudo python3 %(prog)s --script arp_spoof.py [--script-help or -sh for help] [--interface INTERFACE] [--target1 TARGET 1] [--target2 TARGET 2]',allow_abbrev=False)
 
 parser.add_argument('--script-help','-sh',help='Show Script Help',action='store_true')
-parser.add_argument('-i',help='Interface Using In Attack',metavar='')
-parser.add_argument('-t1',help='First Target For Attack',metavar='')
-parser.add_argument('-t2',help='Second Target For Attack',metavar='')
+parser.add_argument('--interface',help='Interface Using In Attack',metavar='')
+parser.add_argument('--target1',help='First Target For Attack',metavar='')
+parser.add_argument('--target2',help='Second Target For Attack',metavar='')
 args ,unknown = parser.parse_known_args()
 
 if ((args.script_help is not None) and (args.script_help is True)):
     print_parser_help()
 
-if (args.t1 != None) and (args.t2 != None) and (args.i != None): # check arguments
+if (args.target1 != None) and (args.target2 != None) and (args.interface != None): # check arguments
     pass
 else:
     parser.print_usage() # print parser help
     exit()
 
 
-arp_spoof = ArpSpoof(args.i ,args.t1 ,args.t2) # make an instance from ArpSpoof class
+arp_spoof = ArpSpoof(args.interface ,args.target1 ,args.target2) # make an instance from ArpSpoof class
 arp_spoof.start() # start attack

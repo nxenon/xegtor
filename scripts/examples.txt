@@ -1,6 +1,6 @@
 # this file contains examples for scripts used in project
 [arp_spoof.py script examples] :
---script arp_spoof.py -i eth1 -t1 192.168.1.50 -t2 192.168.1.20
+--script arp_spoof.py --interface eth1 --target1 192.168.1.50 --target2 192.168.1.20
 [arp_ping.py examples] :
 --script arp_ping.py --range 192.168.1.0/24 --timeout 3.5
 [icmp_ping.py examples] :
