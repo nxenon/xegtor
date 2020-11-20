@@ -6,6 +6,7 @@ this script is for /attack page in which you can start attacks
 
 from flask import render_template,request,redirect
 import json
+from modules.check_required_argument import argument_is_required
 
 def show_options(script):
     option_text = '<br><br><h2 style="text-align : center">' + script + '</h2><br><br>'
@@ -17,16 +18,16 @@ def show_options(script):
     option_text += '<input type="hidden" name="script" value="' + script + '"'
 
     file = open('GUI/functions/arguments.json','r')
-    arguments = json.load(file)
-    for args in arguments[script] :
-        args_list = list(args.keys())
-        for a in args_list :
-            if (args[a] == '*') : # if the argument is required
-                option_text += '<label>' + a.title() + ' </label>'
-                option_text += '<input style="font-size : 25px" type="text" placeholder="Enter ' + a.title() + '"' + 'name="' + a + '" required><br><br>'
+    arguments_in_file = json.load(file)
+    for script_args in arguments_in_file[script] :
+        args_list = list(script_args.keys())
+        for arg in args_list :
+            if (argument_is_required(script_name=script,argument=arg)) :
+                option_text += '<label>' + arg.title() + ' </label>'
+                option_text += '<input style="font-size : 25px" type="text" placeholder="Enter ' + arg.title() + '"' + 'name="' + arg + '" required><br><br>'
             else:
-                option_text += '<label>' + a.title() + ' </label>'
-                option_text += '<input style="font-size : 25px" type="text" placeholder="' + args[a][0].title() + '"' + 'name="' + a + '"><br><br>'
+                option_text += '<label>' + arg.title() + ' </label>'
+                option_text += '<input style="font-size : 25px" type="text" placeholder="' + script_args[arg][0].title() + '"' + 'name="' + arg + '"><br><br>'
 
     option_text += '''<br>
     <button class="button-attack">Start</button>
