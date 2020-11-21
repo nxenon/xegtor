@@ -11,5 +11,5 @@ arguments_in_file = json.load(file)
 
 def get_default_value(script_name,argument):
     script_args = arguments_in_file[script_name][0]
-    default_value = script_args[argument][1]
-    return default_value
+    default_values = script_args[argument]
+    return default_values # (default value text , value)
