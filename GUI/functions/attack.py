@@ -7,6 +7,7 @@ this script is for /attack page in which you can start attacks
 from flask import render_template,request,redirect
 import json
 from modules.check_required_argument import argument_is_required
+from modules.get_argument_default_value import get_default_value
 
 def show_options(script):
     option_text = '<br><br><h2 style="text-align : center">' + script + '</h2><br><br>'
@@ -27,7 +28,7 @@ def show_options(script):
                 option_text += '<input style="font-size : 25px" type="text" placeholder="Enter ' + arg.title() + '"' + 'name="' + arg + '" required><br><br>'
             else:
                 option_text += '<label>' + arg.title() + ' </label>'
-                option_text += '<input style="font-size : 25px" type="text" placeholder="' + script_args[arg][0].title() + '"' + 'name="' + arg + '"><br><br>'
+                option_text += '<input style="font-size : 25px" type="text" placeholder="' + get_default_value(script_name=script,argument=arg)[0].title() + '"' + 'name="' + arg + '"><br><br>'
 
     option_text += '''<br>
     <button class="button-attack">Start</button>
