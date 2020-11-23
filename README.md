@@ -1,8 +1,8 @@
 # xegtor
-[![Tool Category](https://badgen.net/badge/Tool/Network%20Attack%20&%20Scan/black)](https://github.com/xenon-xenon/xegtor)
-[![APP Version](https://badgen.net/badge/Version/Beta/red)](https://github.com/xenon-xenon/xegtor)
+[![Tool Category](https://badgen.net/badge/Tool/Network%20Attack%20&%20Scan/black)](https://github.com/xegtor/xegtor)
+[![APP Version](https://badgen.net/badge/Version/Beta/red)](https://github.com/xegtor/xegtor)
 [![Python Version](https://badgen.net/badge/Python/3.x/blue)](https://www.python.org/download/releases/3.0/)
-[![License](https://badgen.net/badge/License/GPLv2/purple)](https://github.com/xenon-xenon/xegtor/blob/master/LICENSE)
+[![License](https://badgen.net/badge/License/GPLv2/purple)](https://github.com/xegtor/xegtor/blob/master/LICENSE)
 
 xegtor is a tool for performing network attacks and network scanning.
 
@@ -12,7 +12,7 @@ Screenshots
 
 Installation
 ----
-    git clone https://github.com/xenon-xenon/xegtor.git
+    git clone https://github.com/xegtor/xegtor.git
     cd xegtor
     pip3 install -r requirements.txt
     
@@ -22,4 +22,4 @@ Usage
     
 Scripts
 ----
-- [![Scripts README]()](https://github.com/xenon-xenon/xegtor/blob/master/scripts/README.md)
+- [![Scripts README]()](https://github.com/xegtor/xegtor/blob/master/scripts/README.md)

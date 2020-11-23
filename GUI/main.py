@@ -62,7 +62,7 @@ def logout():
 
 @app_main.route('/forgotpass')
 def forgot_password():
-    return redirect('https://github.com/xenon-xenon/xegtor/blob/master/docs/forgotpass.md',code=302)
+    return redirect('https://github.com/xegtor/xegtor/blob/master/docs/forgotpass.md',code=302)
 
 @app_main.route('/scripts')
 def scripts():
