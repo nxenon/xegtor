@@ -7,7 +7,7 @@ from random import randint
 app_version = 'Beta'
 version_text = '{version : ' + app_version + '}'
 # Link to github
-github_link = 'https://github.com/xenon-xenon/xegtor'
+github_link = 'https://github.com/xegtor/xegtor'
 
 color_list = [Fore.RED,Fore.CYAN,Fore.YELLOW,Fore.GREEN,Fore.LIGHTRED_EX,Fore.LIGHTYELLOW_EX,Fore.MAGENTA]
 random_color = color_list[randint(0,len(color_list)-1)]
