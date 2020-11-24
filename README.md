@@ -23,3 +23,11 @@ Usage
 Scripts
 ----
 - [![Scripts README]()](https://github.com/xegtor/xegtor/blob/master/scripts/README.md)
+
+Contribution
+----
+if you wanna Contribute ,DM me for more information.
+
+- Email : khodexenon@gmail.com
+- Discord : Xenon#5017
+- Github : github.com/xenon-xenon
