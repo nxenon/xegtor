@@ -8,7 +8,7 @@ ARP Cache Poisoning Scripts
 ----
 perform arp cache poisoning for MITM
 
-`arp_spoof.py` [![Link]()](https://github.com/xenon-xenon/xegtor/blob/master/scripts/arp_spoof.py)
+`arp_spoof.py` [![Link]()](https://github.com/xegtor/xegtor/blob/master/scripts/arp_spoof.py)
 
 Arguments:
 - `--interface` interface name **(required)**
@@ -19,7 +19,7 @@ ARP Ping
 ----
 scan hosts in network with ARP
 
-`arp_ping.py` [![Link]()](https://github.com/xenon-xenon/xegtor/blob/master/scripts/arp_ping.py)
+`arp_ping.py` [![Link]()](https://github.com/xegtor/xegtor/blob/master/scripts/arp_ping.py)
 
 Arguments:
 - `--range` ip_range [e.g. 192.168.1.0/24] **(required)**
@@ -29,7 +29,7 @@ ICMP Ping
 ----
 scan hosts in network with ICMP
 
-`icmp_ping.py` [![Link]()](https://github.com/xenon-xenon/xegtor/blob/master/scripts/icmp_ping.py)
+`icmp_ping.py` [![Link]()](https://github.com/xegtor/xegtor/blob/master/scripts/icmp_ping.py)
 
 Arguments:
 - `--range` ip_range [e.g. 192.168.1.0/24] **(required)**
@@ -38,7 +38,7 @@ Syn Flood
 ----
 this script performs syn flood attack
 
-`syn_flood.py` [![Link]()](https://github.com/xenon-xenon/xegtor/blob/master/scripts/syn_flood.py)
+`syn_flood.py` [![Link]()](https://github.com/xegtor/xegtor/blob/master/scripts/syn_flood.py)
 
 Arguments:
 - `--target` TARGET **(required)**
@@ -49,7 +49,7 @@ TCP Syn Port Scanner
 ----
 this script performs port scanning with TCP (`syn `method)
 
-`tcp_ps_syn.py` [![Link]()](https://github.com/xenon-xenon/xegtor/blob/master/scripts/tcp_ps_syn.py)
+`tcp_ps_syn.py` [![Link]()](https://github.com/xegtor/xegtor/blob/master/scripts/tcp_ps_syn.py)
 
 Arguments:
 - `--target` TARGET **(required)**
@@ -62,7 +62,7 @@ this script performs port scanning with TCP (`ack `method).
 - scan port states
 - `stateful` firewall detection
 
-`tcp_ps_ack.py` [![Link]()](https://github.com/xenon-xenon/xegtor/blob/master/scripts/tcp_ps_ack.py)
+`tcp_ps_ack.py` [![Link]()](https://github.com/xegtor/xegtor/blob/master/scripts/tcp_ps_ack.py)
 
 Arguments:
 - `--target` TARGET **(required)**
@@ -70,4 +70,4 @@ Arguments:
 - `--timeout` secs (default `1.0`)
 
 # Examples
-- [![Scripts Examples File]()](https://github.com/xenon-xenon/xegtor/blob/master/scripts/examples.txt)
+- [![Scripts Examples File]()](https://github.com/xegtor/xegtor/blob/master/scripts/examples.txt)
