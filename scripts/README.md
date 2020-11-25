@@ -56,5 +56,18 @@ Arguments:
 - `--port` PORT(S) [e.g. 80 or 80,22 or 80-90] **(required)**
 - `--timeout` secs (default `0.1`)
 
+TCP Ack Port Scanner
+----
+this script performs port scanning with TCP (`ack `method).
+- scan port states
+- `stateful` firewall detection
+
+`tcp_ps_ack.py` [![Link]()](https://github.com/xenon-xenon/xegtor/blob/master/scripts/tcp_ps_ack.py)
+
+Arguments:
+- `--target` TARGET **(required)**
+- `--port` PORT(S) [e.g. 80 or 80,22 or 80-90] **(required)**
+- `--timeout` secs (default `1.0`)
+
 # Examples
 - [![Scripts Examples File]()](https://github.com/xenon-xenon/xegtor/blob/master/scripts/examples.txt)

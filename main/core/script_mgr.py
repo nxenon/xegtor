@@ -15,5 +15,7 @@ class ScriptManager:
             import scripts.syn_flood
         elif self.script_name == 'tcp_ps_syn.py':
             import scripts.tcp_ps_syn
+        elif self.script_name == 'tcp_ps_ack.py':
+            import scripts.tcp_ps_ack
         else:
             print('error : invalid script name [-h for help] [--show-scripts to show scripts names]')

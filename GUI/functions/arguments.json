@@ -5,5 +5,6 @@
   "arp_ping.py" : [{"Range" : "*","Timeout" : ["default : 3.5","3.5"]}],
   "icmp_ping.py" : [{"Range" :  "*"}],
   "syn_flood.py" : [{"Target" : "*","Port" : "*"}],
-  "tcp_ps_syn.py" : [{"Target" : "*","Port" : "*","Timeout" : ["default : 0.1","0.1"]}]
+  "tcp_ps_syn.py" : [{"Target" : "*","Port" : "*","Timeout" : ["default : 0.1","0.1"]}],
+  "tcp_ps_ack.py" : [{"Target" : "*","Port" : "*","Timeout" : ["default : 1.0","1.0"]}]
 }
