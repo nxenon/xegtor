@@ -26,7 +26,7 @@ Scripts
 
 Contribution
 ----
-if you wanna contribute ,DM me for more information.
+if you wanna contribute ,DM for more information.
 
 - Email : khodexenon@gmail.com
 - Discord Server : [![Xegtor Discord]()](https://discord.gg/y7S9PmedTt)
