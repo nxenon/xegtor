@@ -7,9 +7,11 @@ this script is for /perform_attack page in which you can perform and start attac
 from flask import render_template,request,redirect
 import json
 from modules.get_argument_default_value import get_default_value
+from main.core.script_mgr import ScriptManager
 
 def run_attack(script_name,arguments_dict):
-    pass
+    script_manager = ScriptManager(script_name=script_name ,gui_args=arguments_dict)
+    script_manager.run_script()
 
 def show_arguments():
     content = ''
