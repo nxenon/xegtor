@@ -6,16 +6,22 @@ class ScriptManager:
 
     def run_script(self):
         if self.script_name == 'arp_spoof.py':
-            import scripts.arp_spoof
+            from scripts.arp_spoof import main
+            main()
         elif self.script_name == 'arp_ping.py':
-            import scripts.arp_ping
+            from scripts.arp_ping import main
+            main()
         elif self.script_name == 'icmp_ping.py':
-            import scripts.icmp_ping
+            from scripts.icmp_ping import main
+            main()
         elif self.script_name == 'syn_flood.py':
-            import scripts.syn_flood
+            from scripts.syn_flood import main
+            main()
         elif self.script_name == 'tcp_ps_syn.py':
-            import scripts.tcp_ps_syn
+            from scripts.tcp_ps_syn import main
+            main()
         elif self.script_name == 'tcp_ps_ack.py':
-            import scripts.tcp_ps_ack
+            from scripts.tcp_ps_ack import main
+            main()
         else:
             print('error : invalid script name [-h for help] [--show-scripts to show scripts names]')

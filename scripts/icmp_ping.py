@@ -44,6 +44,9 @@ class IcmpPingScan():
         if error_code == 0 :
             print('host ' + str(ip) + ' is up')
 
+def run_from_gui(argument_values):
+    scan = IcmpPingScan(ip_range=argument_values['range'])
+    scan.start()
 
 def print_parser_help():
     help_text = '''
@@ -53,20 +56,20 @@ optional arguments:
     '''
     print(help_text)
 
+def main():
+    parser = ArgumentParser(usage='sudo python3 %(prog)s --script icmp_ping.py [--script-help or -sh for help] [--range network_range x.x.x.x/yy]',allow_abbrev=False)
+    parser.add_argument('--script-help', '-sh', help='Show Script Help', action='store_true')
+    parser.add_argument('--range', help='Range To Scan', metavar='x.x.x.x/yy')
+    args, unknown = parser.parse_known_args()
 
-parser = ArgumentParser(usage='sudo python3 %(prog)s --script icmp_ping.py [--script-help or -sh for help] [--range network_range x.x.x.x/yy]',allow_abbrev=False)
-parser.add_argument('--script-help', '-sh', help='Show Script Help', action='store_true')
-parser.add_argument('--range', help='Range To Scan', metavar='x.x.x.x/yy')
-args, unknown = parser.parse_known_args()
+    if ((args.script_help is not None) and (args.script_help is True)):
+        print_parser_help()
 
-if ((args.script_help is not None) and (args.script_help is True)):
-    print_parser_help()
+    if (args.range != None):
+        pass
+    else:
+        parser.print_usage()
+        exit()
 
-if (args.range != None):
-    pass
-else:
-    parser.print_usage()
-    exit()
-
-scan = IcmpPingScan(args.range)
-scan.start()
+    scan = IcmpPingScan(args.range)
+    scan.start()

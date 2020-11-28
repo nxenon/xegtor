@@ -117,6 +117,9 @@ class ArpSpoof:
             print('The attack has finished.')
             exit()
 
+def run_from_gui(argument_values):
+    arp_spoof = ArpSpoof(local_interface=argument_values['interface'] ,target1_ip=argument_values['target1'] ,target2_ip=argument_values['target2'] )
+    arp_spoof.start()
 
 def print_parser_help():
     help_text = '''
@@ -128,25 +131,25 @@ def print_parser_help():
     '''
     print(help_text)
 
+def main():
+    # define parser and its arguments
+    parser = ArgumentParser(usage='sudo python3 %(prog)s --script arp_spoof.py [--script-help or -sh for help] [--interface INTERFACE] [--target1 TARGET 1] [--target2 TARGET 2]',allow_abbrev=False)
 
-# define parser and its arguments
-parser = ArgumentParser(usage='sudo python3 %(prog)s --script arp_spoof.py [--script-help or -sh for help] [--interface INTERFACE] [--target1 TARGET 1] [--target2 TARGET 2]',allow_abbrev=False)
+    parser.add_argument('--script-help','-sh',help='Show Script Help',action='store_true')
+    parser.add_argument('--interface',help='Interface Using In Attack',metavar='')
+    parser.add_argument('--target1',help='First Target For Attack',metavar='')
+    parser.add_argument('--target2',help='Second Target For Attack',metavar='')
+    args ,unknown = parser.parse_known_args()
 
-parser.add_argument('--script-help','-sh',help='Show Script Help',action='store_true')
-parser.add_argument('--interface',help='Interface Using In Attack',metavar='')
-parser.add_argument('--target1',help='First Target For Attack',metavar='')
-parser.add_argument('--target2',help='Second Target For Attack',metavar='')
-args ,unknown = parser.parse_known_args()
+    if ((args.script_help is not None) and (args.script_help is True)):
+        print_parser_help()
 
-if ((args.script_help is not None) and (args.script_help is True)):
-    print_parser_help()
-
-if (args.target1 != None) and (args.target2 != None) and (args.interface != None): # check arguments
-    pass
-else:
-    parser.print_usage() # print parser help
-    exit()
+    if (args.target1 != None) and (args.target2 != None) and (args.interface != None): # check arguments
+        pass
+    else:
+        parser.print_usage() # print parser help
+        exit()
 
 
-arp_spoof = ArpSpoof(args.interface ,args.target1 ,args.target2) # make an instance from ArpSpoof class
-arp_spoof.start() # start attack
+    arp_spoof = ArpSpoof(args.interface ,args.target1 ,args.target2) # make an instance from ArpSpoof class
+    arp_spoof.start() # start attack

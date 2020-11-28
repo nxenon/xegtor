@@ -116,6 +116,10 @@ class TcpAckPortScanner:
         elif (self.is_firewall['exists'] is not None) and (self.is_firewall['scan_is_finished'] == True) :
             print(Fore.RED + 'maybe there is a stateful firewall' + Fore.RESET)
 
+def run_from_gui(argument_values):
+    scanner = TcpAckPortScanner(target_ip=argument_values['target'] ,port=argument_values['port'] ,timeout=argument_values['timeout'])
+    scanner.start()
+
 def print_parser_help():
     help_text = '''
 optional arguments:
@@ -126,22 +130,22 @@ optional arguments:
     '''
     print(help_text)
 
+def main():
+    parser = ArgumentParser(usage='sudo python3 %(prog)s --script tcp_ps_ack.py [--script-help or -sh for help] [--target TARGET] [--port PORT(S)] [--timeout sec (default 1 sec)]',allow_abbrev=False)
+    parser.add_argument('--script-help', '-sh', help='Show Script Help', action='store_true')
+    parser.add_argument('--target', help='Target To Attack', metavar='')
+    parser.add_argument('--port','-p',help='Port Numbers To Attack', metavar='x,y,z')
+    parser.add_argument('--timeout', help='Timeout For Response', metavar='default : 0.1 sec',default=1)
+    args, unknown = parser.parse_known_args()
 
-parser = ArgumentParser(usage='sudo python3 %(prog)s --script tcp_ps_ack.py [--script-help or -sh for help] [--target TARGET] [--port PORT(S)] [--timeout sec (default 1 sec)]',allow_abbrev=False)
-parser.add_argument('--script-help', '-sh', help='Show Script Help', action='store_true')
-parser.add_argument('--target', help='Target To Attack', metavar='')
-parser.add_argument('--port','-p',help='Port Numbers To Attack', metavar='x,y,z')
-parser.add_argument('--timeout', help='Timeout For Response', metavar='default : 0.1 sec',default=1)
-args, unknown = parser.parse_known_args()
+    if ((args.script_help is not None) and (args.script_help is True)):
+        print_parser_help()
 
-if ((args.script_help is not None) and (args.script_help is True)):
-    print_parser_help()
+    if ((args.target != None) and (args.port != None)):
+        pass
+    else:
+        parser.print_usage()
+        exit()
 
-if ((args.target != None) and (args.port != None)):
-    pass
-else:
-    parser.print_usage()
-    exit()
-
-scanner = TcpAckPortScanner(target_ip=args.target,port=args.port,timeout=args.timeout)
-scanner.start()
+    scanner = TcpAckPortScanner(target_ip=args.target,port=args.port,timeout=args.timeout)
+    scanner.start()
