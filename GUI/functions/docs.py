@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 '''
-this script is for /examples page in which you can see scripts examples
+this script is for /docs page in which you can see scripts README
 '''
 
 from flask import redirect

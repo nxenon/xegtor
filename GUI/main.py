@@ -99,6 +99,15 @@ def perform_attack():
     perform_attack = perform_attack()
     return perform_attack
 
+@app_main.route('/show_examples')
+def show_examples():
+    is_reset = check_reset()
+    if (is_reset):
+        return is_reset
+    from GUI.functions.show_examples import show_examples
+    show_examples = show_examples()
+    return show_examples
+
 @app_main.errorhandler(404)
 def page_not_found(e):
     return render_template('404_error.html'), 404

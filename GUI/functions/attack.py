@@ -34,6 +34,7 @@ def show_options(script):
     <button class="button-attack">Start</button>
     </div>
     </form>
+    <h3 style="text-align : center"><a href="/show_examples" target="_blank">Show Examples</a></h3>
     '''
 
     return option_text
