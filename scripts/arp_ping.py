@@ -8,6 +8,9 @@ from scapy.all import *
 from scapy.layers.inet import *
 from scapy.layers.l2 import ARP
 from argparse import ArgumentParser
+from modules.logger import Logger
+
+logger = Logger(log_file='logs/xegtor.log' ,filemode='a')
 
 class ArpPing:
     def __init__(self ,ip_range ,timeout):
@@ -15,11 +18,15 @@ class ArpPing:
         try:
             self.timeout = float(timeout)
         except ValueError :
+            error_msg = 'error : timeout must be float or integer e.g 3.5 [--script-help or -sh for help]'
             print()
-            print('error : timeout must be float or integer e.g 3.5 [--script-help or -sh for help]')
+            print(error_msg)
+            logger.log(error_msg)
             exit()
 
     def start(self):
+        logger.add_log_delimiter()
+        logger.add_time()
         self.check_range()
         self.run_arp_ping()
 
@@ -28,14 +35,24 @@ class ArpPing:
         if (len(range_parts) == 2):
             pass
         else:
-            print('Invalid Range : e.g. 192.168.1.0/24 [--script-help or -sh for help]')
+            error_msg = 'Invalid Range : e.g. 192.168.1.0/24 [--script-help or -sh for help]'
+            print(error_msg)
+            logger.log(error_msg)
             exit()
 
     def run_arp_ping(self):
         dest = 'ff:ff:ff:ff:ff:ff'
-        print('Scanning... --> timeout : ' + str(self.timeout) + ' secs')
+        header = 'Scanning... --> timeout : ' + str(self.timeout) + ' secs'
+        print(header)
+        logger.log(header)
         ans, unans = srp(Ether(dst=dest) / ARP(pdst=self.ip_range), timeout=self.timeout,verbose=1)
-        ans.summary(lambda s_r: s_r[1].sprintf("IP : %ARP.psrc% ,Mac : %Ether.src%"))
+        summery = ans.summary(lambda s_r: s_r[1].sprintf("IP : %ARP.psrc% ,Mac : %Ether.src%"))
+        print(summery)
+        logger.log(summery)
+
+    def __del__(self):
+        # when scan is finished add a log delimiter into log file
+        logger.add_log_delimiter()
 
 def run_from_gui(argument_values):
     arp_ping = ArpPing(ip_range=argument_values['range'] ,timeout=argument_values['timeout'])
