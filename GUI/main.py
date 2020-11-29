@@ -5,6 +5,7 @@ this file is for GUI version of xegtor
 '''
 
 from flask import Flask,request,render_template,make_response,redirect
+import logging
 
 # if you start the server for first time cookies will be cleared
 reset_number = 1 # 1 is restarted and 0 is not restarted
@@ -12,6 +13,9 @@ reset_number = 1 # 1 is restarted and 0 is not restarted
 template_folder_path = 'GUI/templates/'
 static_folder_path = 'GUI/static/'
 app_main = Flask('__main__',template_folder=template_folder_path,static_folder=static_folder_path)
+
+log = logging.getLogger('werkzeug')
+log.setLevel(logging.ERROR)
 
 @app_main.route('/')
 def index():
