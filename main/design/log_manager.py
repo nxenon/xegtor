@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 '''
-this script is for managing logs folder and files
+this script is for managing logs folder and files (checking existence ,creation)
 '''
 
 from os.path import isdir,isfile
