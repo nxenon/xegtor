@@ -52,6 +52,10 @@ This file contains xegtor attacks and scanning logs
         time = 'time : ' + time_now_formatted
         self.log(time)
 
+    def add_log_path(self):
+        msg = 'Log Path : ' + self.log_file
+        self.log(msg)
+
     def check_logs(self):
         from main.design.log_manager import LogManager
         log_manager = LogManager()
