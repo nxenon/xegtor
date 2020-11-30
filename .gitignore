@@ -128,3 +128,5 @@ dmypy.json
 test
 notes.txt
 archives
+# ignore log files in git
+**/*.log
