@@ -21,16 +21,26 @@ class Logger:
         except:
             pass
 
-    def add_log_header(self ,log_name):
+    def add_log_header(self ,log_name=None):
         header = '''
+*--------------------------------*
                  _
  __  _____  ____| |_ ___  ____
  \ \/ / _ \/ _` | __/ _ \| '__|
   >  <  __/ (_| | || (_) | |
  /_/\_\___|\__, |\__\___/|_|
            |___/
+           
+This file contains xegtor attacks and scanning logs
+*--------------------------------*
         '''
+        if log_name :
+            header += ' ({})'.format(log_name)
         self.log(header)
+
+    def add_script_name(self ,script_name):
+        msg = 'Script : ' + script_name
+        self.log(msg)
 
     def add_log_delimiter(self):
         delimiter = '\n*--------------------------------*\n'
@@ -41,3 +51,8 @@ class Logger:
         time_now_formatted = time_now.strftime('%Y-%m-%d %H:%M:%S')
         time = 'time : ' + time_now_formatted
         self.log(time)
+
+    def check_logs(self):
+        from main.design.log_manager import LogManager
+        log_manager = LogManager()
+        log_manager.overall_check()
