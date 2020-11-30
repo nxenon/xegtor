@@ -6,6 +6,8 @@ this file is for GUI version of xegtor
 
 from flask import Flask,request,render_template,make_response,redirect
 import logging
+from threading import Thread
+from time import sleep
 
 # if you start the server for first time cookies will be cleared
 reset_number = 1 # 1 is restarted and 0 is not restarted
@@ -14,6 +16,7 @@ template_folder_path = 'GUI/templates/'
 static_folder_path = 'GUI/static/'
 app_main = Flask('__main__',template_folder=template_folder_path,static_folder=static_folder_path)
 
+# disable flask url logging
 log = logging.getLogger('werkzeug')
 log.setLevel(logging.ERROR)
 
@@ -131,4 +134,14 @@ def check_reset():
     else:
         return ''
 
-app_main.run(port=8484)
+def print_url_banner():
+    sleep(1.5)
+    flask_url_msg = '\n\tWeb interface running on http://' + listening_ip + ':' + str(port_num) + '/'
+    print(flask_url_msg)
+
+port_num = 8484
+listening_ip = '127.0.0.1'
+
+Thread(target=print_url_banner).start() # start a thread to print http url after flask headers
+
+app_main.run(port=port_num ,host=listening_ip)
