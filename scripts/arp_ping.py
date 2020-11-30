@@ -46,9 +46,10 @@ class ArpPing:
         print(header)
         logger.log(header)
         ans, unans = srp(Ether(dst=dest) / ARP(pdst=self.ip_range), timeout=self.timeout,verbose=1)
-        summery = ans.summary(lambda s_r: s_r[1].sprintf("IP : %ARP.psrc% ,Mac : %Ether.src%"))
-        print(summery)
-        logger.log(summery)
+        for a in ans:
+            answer = 'IP : ' + a[1].psrc + ' ,Mac : ' + a[1].hwsrc
+            print(answer)
+            logger.log(answer)
 
     def __del__(self):
         # when scan is finished add a log delimiter into log file
