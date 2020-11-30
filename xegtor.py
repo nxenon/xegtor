@@ -2,7 +2,7 @@
 
 '''
 Xegtor
-Network Attacks Tool
+Network Attacks and Scanning Tool
 https://github.com/xenon-xenon/xegtor
                  _
  __  _____  ____| |_ ___  ____
