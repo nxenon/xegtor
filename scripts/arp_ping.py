@@ -10,7 +10,8 @@ from scapy.layers.l2 import ARP
 from argparse import ArgumentParser
 from modules.logger import Logger
 
-logger = Logger(log_file='logs/xegtor.log' ,filemode='a')
+log_file_path = 'logs/xegtor.log'
+logger = Logger(log_file=log_file_path ,filemode='a')
 
 class ArpPing:
     def __init__(self ,ip_range ,timeout):
@@ -26,6 +27,8 @@ class ArpPing:
 
     def start(self):
         logger.add_log_delimiter()
+        logger.add_log_path()
+        logger.add_script_name('arp_ping.py')
         logger.add_time()
         self.check_range()
         self.run_arp_ping()
