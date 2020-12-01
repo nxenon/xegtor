@@ -43,7 +43,7 @@ class TcpAckPortScanner:
         logger.log(target_header_msg)
 
         timeout_header_msg = 'timeout : ' + str(self.timeout)
-        print(target_header_msg)
+        print(timeout_header_msg)
         logger.log(timeout_header_msg)
 
         self.check_port() # check port argument and adds ports in self.ports_list var
@@ -155,7 +155,7 @@ class TcpAckPortScanner:
             stateful_firewall_existence_msg = ' there is no stateful firewall'
             print(Fore.GREEN + stateful_firewall_existence_msg + Fore.RESET)
             logger.log(stateful_firewall_existence_msg)
-            
+
         elif (self.is_firewall['exists'] is not None) and (self.is_firewall['scan_is_finished'] == True) :
             stateful_firewall_existence_msg = 'maybe there is a stateful firewall'
             print(Fore.RED + stateful_firewall_existence_msg + Fore.RESET)
