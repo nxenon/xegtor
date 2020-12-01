@@ -34,16 +34,20 @@ def show_arguments():
             arguments_and_values[arg.lower()] = argument_value
 
     content += '<br><br>'
-    run_attack(script_name=script_name ,arguments_dict=arguments_and_values)
-    return content
+    try:
+        run_attack(script_name=script_name, arguments_dict=arguments_and_values)
+    except Exception:
+        pass
+    return content, script_name
 
 def perform_attack():
-    page = render_template('dashboard.html')
+    page = render_template('stream_log.html')
     if (request.cookies.get('logged_in') == 'yes'):
         page = page.replace('{to_replace_username}', request.cookies.get('user').title())
     else:
         return redirect('/login', code=302)
 
-    content = show_arguments()
-    page = page.replace('{to_replace_text}',content)
+    content, script_name = show_arguments()
+    page = page.replace('{script_name}', script_name[:-3]) # Replace name of the script has been run in template
+    page = page.replace('{to_replace_text}', content)
     return page
