@@ -4,7 +4,7 @@
 this file is for GUI version of xegtor
 '''
 
-from flask import Flask,request,render_template,make_response,redirect
+from flask import Flask,request,render_template,make_response,redirect,Response
 import logging
 from threading import Thread
 from time import sleep
@@ -20,6 +20,22 @@ app_main = Flask('__main__',template_folder=template_folder_path,static_folder=s
 log = logging.getLogger('werkzeug')
 log.setLevel(logging.ERROR)
 
+# Find the last line of the log file
+with open(f'logs/xegtor.log', 'r') as file:
+    index_last_log = len(file.readlines())
+
+def logger(log_file_name):
+    ''' Read log file'''
+    global index_last_log
+    while True:
+        with open(f'logs/{log_file_name}.log', 'r') as file:
+            try:
+                yield file.readlines()[index_last_log]
+                index_last_log += 1
+                sleep(0.2) # delay to show log in template
+            except Exception:
+                continue
+
 @app_main.route('/')
 def index():
     is_reset =  check_reset()
@@ -29,6 +45,12 @@ def index():
     from GUI.functions.index import index
     index = index()
     return index
+
+@app_main.route("/stream_log")
+def stream_log():
+    # log_file_name = request.headers['script'] # Name of the script has been run
+    log_file_name = "xegtor"
+    return Response(logger(log_file_name), mimetype="text/plain", content_type="text/event-stream") # Build a response to send log
 
 @app_main.route('/login')
 def login():
