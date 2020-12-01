@@ -22,7 +22,7 @@ class IcmpPingScan():
     def start(self):
         logger.add_log_delimiter()
         logger.add_log_path()
-        logger.add_script_name('arp_spoof.py')
+        logger.add_script_name('icmp_ping.py')
         logger.add_time()
 
         scanning_msg = 'scanning...'
