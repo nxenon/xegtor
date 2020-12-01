@@ -12,6 +12,7 @@ from modules.logger import Logger
 
 log_file_path = 'logs/xegtor.log'
 logger = Logger(log_file=log_file_path ,filemode='a')
+logger.check_logs()
 
 class ArpPing:
     def __init__(self ,ip_range ,timeout):
