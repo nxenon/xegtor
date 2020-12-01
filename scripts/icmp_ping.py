@@ -7,6 +7,11 @@ this script is for network hosts scanning --> ICMP ping scan
 from argparse import ArgumentParser
 from threading import Thread
 import subprocess
+from modules.logger import Logger
+
+log_file_path = 'logs/xegtor.log'
+logger = Logger(log_file=log_file_path ,filemode='a')
+logger.check_logs()
 
 class IcmpPingScan():
 
@@ -15,7 +20,15 @@ class IcmpPingScan():
         self.check_os()
 
     def start(self):
-        print('scanning...')
+        logger.add_log_delimiter()
+        logger.add_log_path()
+        logger.add_script_name('arp_spoof.py')
+        logger.add_time()
+
+        scanning_msg = 'scanning...'
+        print(scanning_msg)
+        logger.log(scanning_msg)
+
         self.get_ip_list()
         self.sys_os = self.check_os()
         if self.sys_os == 'windows':
@@ -42,7 +55,13 @@ class IcmpPingScan():
         # count_param is (-c or -n) based on os
         error_code = subprocess.run(['ping',self.count_param,'1',str(ip)],stdout=subprocess.DEVNULL).returncode
         if error_code == 0 :
-            print('host ' + str(ip) + ' is up')
+            host_is_up_msg = '[+] host ' + str(ip) + ' is up'
+            print(host_is_up_msg)
+            logger.log(host_is_up_msg)
+
+    def __del__(self):
+        # when scan is finished add a log delimiter into log file
+        logger.add_log_delimiter()
 
 def run_from_gui(argument_values):
     scan = IcmpPingScan(ip_range=argument_values['range'])
