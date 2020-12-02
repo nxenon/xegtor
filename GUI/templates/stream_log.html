@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard</title>
+    <link rel=stylesheet type=text/css href="{{ url_for('static', filename='css/stream_log.css') }}">
+    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            var output = document.getElementById('output');
+            var xhr = new XMLHttpRequest();
+            xhr.open('GET', "{{ url_for('stream_log') }}", true);
+            xhr.setRequestHeader("script", "{script_name}");
+            xhr.send("");
+            setInterval(function() {
+                output.textContent = xhr.responseText;
+            }, 500);
+        });
+
+
+
+    </script>
+    <link rel="icon" type="image/png" href="./static/img/title_logo.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./static/css/dashboard.css">
+    <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+</head>
+<body>
+<div class="top-bar">
+    <img class="top-bar" src="./static/img/xegtor_top_label.jpg">
+</div>
+<div style="text-align: end">
+    <span class="user-label" style="padding : 0 40px 0 35px ; font-size: 25px"><i class="fa fa-user"
+                                                                                  style="padding: 0 7px 0 0 ; font-size: 30px"
+                                                                                  aria-hidden="true"></i>{to_replace_username}</span>
+</div>
+<div id="myNav" class="overlay">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <div class="overlay-content">
+
+        <a href="/dashboard"><i class="fas fa-th" aria-hidden="true" style="padding : 0 9px 0 0"></i>Dashboard</a>
+        <a href="/attack"><i class="fas fa-bug" aria-hidden="true" style="padding : 0 9px 0 0"></i>Attack</a>
+        <a href="/scripts"><i class="fas fa-code" aria-hidden="true" style="padding : 0 9px 0 0"></i>Scripts</a>
+        <a target="_blank" href="/docs"><i class="fas fa-folder-open" aria-hidden="true"
+                                           style="padding : 0 9px 0 0"></i>Docs</a>
+        <br>
+        <button onclick="return confirm('Are you sure ?');" style="background-color : #42bfff ; border-radius : 60px">
+            <a href="/logout"><i class="fa fa-power-off" aria-hidden="true" style="padding : 0 9px 0 0"></i>Logout</a>
+        </button>
+    </div>
+</div>
+<span style="font-size:30px;cursor:pointer;color:#0b8cd0" onclick="openNav()">&#9776; <b>Menu</b></span>
+<script src="./static/js/dashboard.js"></script>
+{to_replace_text}
+
+<div class="row">
+    <h2 align="center">Logging will appear here:</h2>
+    <div class="logging_window">
+        <pre id="output"></pre>
+    </div>
+</div>
+</body>
+</html>
