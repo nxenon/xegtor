@@ -8,10 +8,11 @@ from flask import render_template,request,redirect
 import json
 from modules.get_argument_default_value import get_default_value
 from main.core.script_mgr import ScriptManager
+from threading import Thread
 
 def run_attack(script_name,arguments_dict):
     script_manager = ScriptManager(script_name=script_name ,gui_args=arguments_dict)
-    script_manager.run_script()
+    Thread(target=script_manager.run_script).start()
 
 def show_arguments():
     content = ''
