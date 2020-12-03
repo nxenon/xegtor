@@ -19,6 +19,14 @@ Installation
 Usage
 ----
     sudo python3 xegtor.py -h
+
+Xegtor Web Interface
+----
+
+Xegtor has a web interface to perform `scans` and `attacks` easily in your browser ,you can check the results in web interface.
+
+- [![GUI README]()](https://github.com/xegtor/xegtor/blob/master/GUI/README.md)
+
     
 Scripts
 ----
