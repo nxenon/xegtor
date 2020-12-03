@@ -3,7 +3,7 @@
 '''
 Xegtor
 Network Attacks and Scanning Tool
-https://github.com/xenon-xenon/xegtor
+https://github.com/xegtor/xegtor
                  _
  __  _____  ____| |_ ___  ____
  \ \/ / _ \/ _` | __/ _ \| '__|
