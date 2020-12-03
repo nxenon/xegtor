@@ -16,9 +16,6 @@
                 output.textContent = xhr.responseText;
             }, 500);
         });
-
-
-
     </script>
     <link rel="icon" type="image/png" href="./static/img/title_logo.png">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -31,9 +28,7 @@
     <img class="top-bar" src="./static/img/xegtor_top_label.jpg">
 </div>
 <div style="text-align: end">
-    <span class="user-label" style="padding : 0 40px 0 35px ; font-size: 25px"><i class="fa fa-user"
-                                                                                  style="padding: 0 7px 0 0 ; font-size: 30px"
-                                                                                  aria-hidden="true"></i>{to_replace_username}</span>
+    <span class="user-label" style="padding : 0 40px 0 35px ; font-size: 25px"><i class="fa fa-user" style="padding: 0 7px 0 0 ; font-size: 30px" aria-hidden="true"></i>{to_replace_username}</span>
 </div>
 <div id="myNav" class="overlay">
     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
@@ -53,9 +48,8 @@
 <span style="font-size:30px;cursor:pointer;color:#0b8cd0" onclick="openNav()">&#9776; <b>Menu</b></span>
 <script src="./static/js/dashboard.js"></script>
 {to_replace_text}
-
 <div class="row">
-    <h2 align="center">Logging will appear here:</h2>
+    <h2 align="center">Logs will appear here:</h2>
     <div class="logging_window">
         <pre id="output"></pre>
     </div>
