@@ -4,7 +4,7 @@ Scripts Usage
 ----
     sudo python3 xegtor.py --script script_name [arguments]
 
-ARP Cache Poisoning Scripts
+ARP Cache Poisoning
 ----
 perform arp cache poisoning for MITM
 
