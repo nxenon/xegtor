@@ -23,20 +23,14 @@ class LogManager:
         if not isdir(self.logs_dir_path):
             self.create_logs_directory()
 
+    def create_logs_directory(self):
+        mkdir('logs')
+
     def check_main_log_file(self):
         # check xegtor.log existence
         path = self.logs_dir_path + 'xegtor.log'
         if not isfile(path) :
             self.create_main_log_file()
-
-    def check_log_file(self):
-        # check specific log file existence
-        path = self.logs_dir_path + self.log_name
-        if not isfile(path) :
-            self.create_log_file()
-
-    def create_logs_directory(self):
-        mkdir('logs')
 
     def create_main_log_file(self):
         path = self.logs_dir_path + 'xegtor.log'
@@ -45,6 +39,12 @@ class LogManager:
         # create log header
         logger = Logger(log_file=path)
         logger.add_log_header()
+
+    def check_log_file(self):
+        # check specific log file existence
+        path = self.logs_dir_path + self.log_name
+        if not isfile(path) :
+            self.create_log_file()
 
     def create_log_file(self):
         # create specific log file existence
