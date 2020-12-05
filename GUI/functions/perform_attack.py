@@ -49,6 +49,6 @@ def perform_attack():
         return redirect('/login', code=302)
 
     content, script_name = show_arguments()
-    page = page.replace('{script_name}', script_name[:-3]) # Replace name of the script has been run in template
+    page = page.replace('{script_name}', script_name) # Replace name of the script has been run in template
     page = page.replace('{to_replace_text}', content)
     return page
