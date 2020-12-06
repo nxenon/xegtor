@@ -19,14 +19,19 @@ Installation
 Usage
 ----
     sudo python3 xegtor.py -h
-    
+
+
 - show script names and their description :
-    
+
+
     sudo python3 xegtor.py --show-scripts
- 
+
+
 - show script examples with their arguments :
- 
+
+
     sudo python3 xegtor.py --show-examples
+
 
 Xegtor Web Interface
 ----
