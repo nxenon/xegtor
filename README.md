@@ -19,6 +19,14 @@ Installation
 Usage
 ----
     sudo python3 xegtor.py -h
+    
+- show script names and their description :
+    
+    sudo python3 xegtor.py --show-scripts
+ 
+- show script examples with their arguments :
+ 
+    sudo python3 xegtor.py --show-examples
 
 Xegtor Web Interface
 ----
@@ -26,7 +34,6 @@ Xegtor Web Interface
 Xegtor has a web interface to perform `scans` and `attacks` easily in your browser ,you can check the results in web interface.
 
 - [![GUI README]()](https://github.com/xegtor/xegtor/blob/master/GUI/README.md)
-
     
 Scripts
 ----
