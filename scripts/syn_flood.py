@@ -10,10 +10,18 @@ from argparse import ArgumentParser
 from random import randint
 from time import sleep
 from modules.logger import Logger
+from os.path import isfile
 
-log_file_path = 'logs/xegtor.log'
-logger = Logger(log_file=log_file_path ,filemode='a')
-logger.check_logs()
+logs_dir = 'logs/'
+SCRIPT_NAME = 'syn_flood.py'
+log_file_name = 'syn_flood_py.log'
+log_file_path = logs_dir + log_file_name
+
+if isfile(log_file_path) :
+    logger = Logger(log_file=log_file_path, filemode='a')
+else:
+    logger = Logger(log_file=log_file_path, filemode='w')
+    logger.add_log_header(script_name=SCRIPT_NAME)
 
 class SynFlood:
     def __init__(self,target,ports):
