@@ -18,7 +18,8 @@ class Logger:
     def log(self ,message):
         try:
             self.logger.info(message)
-            self.add_log_to_main_file(content=message)
+            if (self.log_file != 'logs/xegtor'):
+                self.add_log_to_main_file(content=message)
         except:
             pass
 
