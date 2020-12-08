@@ -2,7 +2,7 @@
 
 class ScriptManager:
     def __init__(self,script_name,gui_args=None):
-        self.script_name = script_name
+        self.script_name = script_name.lower()
         # gui_args is a dictionary containing arguments and values for script if the script is running from web interface
         self.gui_args = gui_args
 

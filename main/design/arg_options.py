@@ -19,7 +19,7 @@ def parse_args():
     if (args.gui):
         import GUI.main
         return
-    elif ((args.script is not None) and (args.script in scripts_name_all)):
+    elif ((args.script is not None) and (args.script.lower() in scripts_name_all)):
         send_script(script_name=args.script) # send to process script
 
     elif ((args.script is not None) and (args.script not in scripts_name_all)) :
