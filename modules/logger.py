@@ -18,10 +18,11 @@ class Logger:
     def log(self ,message):
         try:
             self.logger.info(message)
+            self.add_log_to_main_file(content=message)
         except:
             pass
 
-    def add_log_header(self ,log_name=None):
+    def add_log_header(self ,script_name=None):
         header = '''
 *--------------------------------*
                  _
@@ -31,11 +32,14 @@ class Logger:
  /_/\_\___|\__, |\__\___/|_|
            |___/
            
-This file contains xegtor attacks and scanning logs
+This file contains xegtor attacks and scanning logs {to_replace_script_name}
 *--------------------------------*
         '''
-        if log_name :
-            header += ' ({})'.format(log_name)
+        if script_name :
+            script_msg = ' ----> ' + script_name
+            header = header.replace(' {to_replace_script_name}' ,script_msg)
+        else:
+            header = header.replace(' {to_replace_script_name}' ,'')
         self.log(header)
 
     def add_script_name(self ,script_name):
@@ -60,3 +64,8 @@ This file contains xegtor attacks and scanning logs
         from main.design.log_manager import LogManager
         log_manager = LogManager()
         log_manager.overall_check()
+
+    def add_log_to_main_file(self ,content):
+        with open('logs/xegtor.log' ,'a') as file:
+            content = '\n' + content
+            file.write(content)

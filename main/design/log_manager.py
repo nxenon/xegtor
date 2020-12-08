@@ -9,9 +9,10 @@ from os import mkdir
 from modules.logger import Logger
 
 class LogManager:
-    def __init__(self ,log_name=None):
+    def __init__(self ,log_name=None ,script_name=None):
         self.log_name = log_name
         self.logs_dir_path = 'logs/'
+        self.script_name = script_name
 
     def overall_check(self):
         # an overall check for logs
