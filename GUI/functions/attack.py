@@ -23,12 +23,13 @@ def show_options(script):
     for script_args in arguments_in_file[script] :
         args_list = list(script_args.keys())
         for arg in args_list :
-            if (argument_is_required(script_name=script,argument=arg)) :
-                option_text += '<label>' + arg.title() + ' </label>'
-                option_text += '<input style="font-size : 25px" type="text" placeholder="Enter ' + arg.title() + '"' + 'name="' + arg + '" required><br><br>'
-            else:
-                option_text += '<label>' + arg.title() + ' </label>'
-                option_text += '<input style="font-size : 25px" type="text" placeholder="' + get_default_value(script_name=script,argument=arg)[0].title() + '"' + 'name="' + arg + '"><br><br>'
+            if arg != 'log_name' : # ignore log name in arguments.json
+                if (argument_is_required(script_name=script,argument=arg)) :
+                    option_text += '<label>' + arg.title() + ' </label>'
+                    option_text += '<input style="font-size : 25px" type="text" placeholder="Enter ' + arg.title() + '"' + 'name="' + arg + '" required><br><br>'
+                else:
+                    option_text += '<label>' + arg.title() + ' </label>'
+                    option_text += '<input style="font-size : 25px" type="text" placeholder="' + get_default_value(script_name=script,argument=arg)[0].title() + '"' + 'name="' + arg + '"><br><br>'
 
     option_text += '''<br>
     <button class="button-attack">Start</button>

@@ -1,10 +1,10 @@
 {
   "__comment__" : "this file contains scripts arguments",
   "__comment__2" : "* means the argument is required and there is no default value",
-  "arp_spoof.py" : [{"Interface" : "*","Target1" : "*","Target2" : "*"}],
-  "arp_ping.py" : [{"Range" : "*","Timeout" : ["default : 3.5","3.5"]}],
-  "icmp_ping.py" : [{"Range" :  "*"}],
-  "syn_flood.py" : [{"Target" : "*","Port" : "*"}],
-  "tcp_ps_syn.py" : [{"Target" : "*","Port" : "*","Timeout" : ["default : 0.1","0.1"]}],
-  "tcp_ps_ack.py" : [{"Target" : "*","Port" : "*","Timeout" : ["default : 1.0","1.0"]}]
+  "arp_spoof.py" : [{"Interface" : "*","Target1" : "*","Target2" : "*","log_name" : "arp_spoof_py.log"}],
+  "arp_ping.py" : [{"Range" : "*","Timeout" : ["default : 3.5","3.5"] ,"log_name" :  "arp_ping_py.log"}],
+  "icmp_ping.py" : [{"Range" :  "*","log_name" : "icmp_ping_py.log"}],
+  "syn_flood.py" : [{"Target" : "*","Port" : "*","log_name" : "syn_flood_py.log"}],
+  "tcp_ps_syn.py" : [{"Target" : "*","Port" : "*","Timeout" : ["default : 0.1","0.1"],"log_name" : "tcp_ps_syn_py.log"}],
+  "tcp_ps_ack.py" : [{"Target" : "*","Port" : "*","Timeout" : ["default : 1.0","1.0"],"log_name" : "tcp_ps_ack_py.log"}]
 }
