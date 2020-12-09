@@ -47,7 +47,7 @@ class TcpSynPortScanner():
         logger.log(target_header_msg)
 
         timeout_header_msg = 'timeout : ' + str(self.timeout)
-        print(target_header_msg)
+        print(timeout_header_msg)
         logger.log(timeout_header_msg)
 
         self.check_port() # check port argument and adds ports in self.ports_list var
