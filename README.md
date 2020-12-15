@@ -42,7 +42,7 @@ Xegtor has a web interface to perform `scans` and `attacks` easily in your brows
 
 - [![GUI README]()](https://github.com/xegtor/xegtor/blob/master/GUI/README.md)
     
-Scripts
+Scripts Usage
 ----
     sudo python3 xegtor.py --script script_name [arguments]
 
