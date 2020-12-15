@@ -44,6 +44,8 @@ Xegtor has a web interface to perform `scans` and `attacks` easily in your brows
     
 Scripts
 ----
+    sudo python3 xegtor.py --script script_name [arguments]
+
 - [![Scripts README]()](https://github.com/xegtor/xegtor/blob/master/scripts/README.md)
 
 Contribution
