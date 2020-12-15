@@ -12,6 +12,8 @@ GUI Usage
     4) select a script and set the desired arguments
     5) start the attack
     
+    finally read results in web interface 
+    
 Screenshots
 ----
 
@@ -22,6 +24,17 @@ Notes
 
 - Default port number is **8484**
 - Default username and password is **root**
+
+Config File
+----
+
+The main configurations for web interface are in `GUI/config.json` file.
+
+- Listening IP to connect
+- Port number
+- Credential to login
+
+and ...
 
 Documents
 ----
