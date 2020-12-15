@@ -1,4 +1,5 @@
 {
-  "__comment__" : "this file contains main configuration of GUI web interface",
-  "credentials" : [{"user":"root","pass":"root"}]
+  "__comment__" : ["this file contains main configuration of GUI web interface"],
+  "credentials" : [{"user":"root","pass":"root"}],
+  "connection" : [{"host" : "127.0.0.1" ,"port" : "8484"}]
 }

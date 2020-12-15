@@ -8,6 +8,7 @@ from flask import Flask,request,render_template,make_response,redirect,Response
 import logging
 from threading import Thread
 from time import sleep
+from modules.get_config_value import get_config_value
 
 # if you start the server for first time cookies will be cleared
 reset_number = 1 # 1 is restarted and 0 is not restarted
@@ -157,12 +158,12 @@ def check_reset():
         return ''
 
 def print_url_banner():
-    sleep(1.5)
-    flask_url_msg = '\n\tWeb interface running on http://' + listening_ip + ':' + str(port_num) + '/'
+    sleep(1)
+    flask_url_msg = '\n\tWeb interface running on http://' + str(listening_ip) + ':' + str(port_num) + '/'
     print(flask_url_msg)
 
-port_num = 8484
-listening_ip = '127.0.0.1'
+port_num = get_config_value(main_key='connection' ,key_in_list='port')
+listening_ip = get_config_value(main_key='connection' ,key_in_list='host')
 
 Thread(target=print_url_banner).start() # start a thread to print http url after flask headers
 
