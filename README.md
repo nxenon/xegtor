@@ -41,6 +41,8 @@ Xegtor has a web interface to perform `scans` and `attacks` easily in your brows
     sudo python3 xegtor.py --gui
 
 - [![GUI README and Screenshots]()](https://github.com/xegtor/xegtor/blob/master/GUI/README.md)
+
+![Screenshot](https://user-images.githubusercontent.com/61124903/101089818-f2511c80-35ca-11eb-83bd-30b1c17e3fab.png)
     
 Scripts Usage
 ----
