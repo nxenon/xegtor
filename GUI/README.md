@@ -19,6 +19,10 @@ Screenshots
 
 ![Screenshot](https://user-images.githubusercontent.com/61124903/101089818-f2511c80-35ca-11eb-83bd-30b1c17e3fab.png)
 
+![Screenshot](https://user-images.githubusercontent.com/61124903/103424684-ec972880-4bc2-11eb-8838-6b2bfb47c09c.png)
+
+![Screenshot](https://user-images.githubusercontent.com/61124903/103424735-60d1cc00-4bc3-11eb-8da4-224fc3198341.png)
+
 Notes
 ----
 
