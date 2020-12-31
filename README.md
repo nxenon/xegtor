@@ -40,7 +40,7 @@ Xegtor has a web interface to perform `scans` and `attacks` easily in your brows
 
     sudo python3 xegtor.py --gui
 
-- [![GUI README]()](https://github.com/xegtor/xegtor/blob/master/GUI/README.md)
+- [![GUI README and Screenshots]()](https://github.com/xegtor/xegtor/blob/master/GUI/README.md)
     
 Scripts Usage
 ----
