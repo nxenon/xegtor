@@ -42,7 +42,7 @@ Xegtor has a web interface to perform `scans` and `attacks` easily in your brows
 
 - [![GUI README and Screenshots]()](https://github.com/xegtor/xegtor/blob/master/GUI/README.md)
 
-![Screenshot](https://user-images.githubusercontent.com/61124903/101089818-f2511c80-35ca-11eb-83bd-30b1c17e3fab.png)
+![Screenshot](https://user-images.githubusercontent.com/61124903/103485772-07a9a880-4e0e-11eb-8e7b-0abf29dc0bfd.png)
     
 Scripts Usage
 ----
