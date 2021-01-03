@@ -1,4 +1,4 @@
-.logging_window{
+.logging_window {
     display: block;
     padding: 9.5px;
     font-size: 13px;
@@ -8,7 +8,115 @@
     word-wrap: break-word;
     background-color: #f5f5f5;
     border: 1px solid #ccc;
-    border-radius: 4px;
+    border-radius: 15px;
     width: 50%;
     margin: auto;
+}
+
+@import url('https://fonts.googleapis.com/css?family=Ubuntu');
+@import url('https://fonts.googleapis.com/css?family=Ubuntu+Mono');
+textarea {
+    resize: none;
+    color: #dddddd;
+    box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.5);
+    /* background: rgba(56, 4, 40, 0.9); */
+    background: #0f3642;
+    font-family: 'Ubuntu Mono';
+    border: none;
+    padding: 0 10px;
+}
+
+#container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 550px;
+}
+
+#terminal {
+    height: 75vh;
+    box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+#terminal__bar {
+    display: flex;
+    width: 100%;
+    height: 30px;
+    align-items: center;
+    padding: 0 8px;
+    box-sizing: border-box;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    background: linear-gradient(#edebea 0%, #e1dbdb 100%);
+}
+
+#bar__buttons {
+    display: flex;
+    align-items: center;
+}
+
+.bar__button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    margin-right: 5px;
+    font-size: 8px;
+    height: 12px;
+    width: 12px;
+    box-sizing: border-box;
+    border: none;
+    border-radius: 100%;
+    box-shadow: 0px 0px 1px 0px #97968f, 0px 1px 1px 0px #7c7c7a;
+}
+
+#bar__button--minimize {
+    background: linear-gradient(#ffdc19 0%, #ffb52d 100%);
+}
+
+#bar__button--maximize {
+    background: linear-gradient(#1ae807 0%, #44eb1a 100%);
+}
+
+#bar__button--exit {
+    background: linear-gradient(#ff3d3d 0%, #ff3535 100%);
+}
+
+.bar__button:hover {
+    cursor: pointer;
+}
+
+.bar__button:focus {
+    outline: none;
+}
+
+#bar__user {
+    color: #000000;
+    font-size: 14px;
+    text-align: center;
+}
+
+#terminal__body {
+    width: 69.9vw;
+    height: 65vh;
+    font-family: 'Ubuntu Mono';
+    height: calc(100% - 30px);
+    padding-top: 2px;
+    margin-top: -2px;
+}
+
+#terminal__prompt {
+    display: flex;
+}
+
+#terminal__prompt--user {
+    color: #7eda28;
+}
+
+#terminal__prompt--location {
+    color: #4878c0;
+}
+
+#terminal__prompt--bling {
+    color: #dddddd;
 }
