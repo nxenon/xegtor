@@ -8,7 +8,7 @@ xegtor is a tool for performing network attacks and network scanning.
 
 Screenshots
 ----
-![Screenshot](https://user-images.githubusercontent.com/61124903/101089687-c170e780-35ca-11eb-9810-538238b16a4c.png)
+![Screenshot](https://user-images.githubusercontent.com/61124903/103485923-2e1c1380-4e0f-11eb-8c19-7cf436640a58.png)
 
 Installation
 ----
