@@ -90,3 +90,7 @@ table.center {
   cursor: pointer;
   border-radius: 50%;
 }
+
+.separator {
+    padding: 20px;
+}
