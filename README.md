@@ -40,7 +40,7 @@ Xegtor has a web interface to perform `scans` and `attacks` easily in your brows
 
     sudo python3 xegtor.py --gui
 
-- [![GUI README and Screenshots]()](https://github.com/xegtor/xegtor/blob/master/GUI/README.md)
+- [GUI README and Screenshots](https://github.com/xegtor/xegtor/blob/master/GUI/README.md)
 
 ![Screenshot](https://user-images.githubusercontent.com/61124903/103485772-07a9a880-4e0e-11eb-8e7b-0abf29dc0bfd.png)
     
@@ -48,13 +48,13 @@ Scripts Usage
 ----
     sudo python3 xegtor.py --script script_name [arguments]
 
-- [![Scripts README]()](https://github.com/xegtor/xegtor/blob/master/scripts/README.md)
+- [Scripts README](https://github.com/xegtor/xegtor/blob/master/scripts/README.md)
 
 Contribution
 ----
 if you wanna contribute ,DM for more information.
 
 - Email : khodexenon@gmail.com
-- Discord Server : [![Xegtor Discord]()](https://discord.gg/y7S9PmedTt)
+- Discord Server : [Xegtor Discord](https://discord.gg/y7S9PmedTt)
 - Discord (owner) : Xenon#5017
-- Github : [![nxenon]()](https://github.com/nxenon)
+- Github : [nxenon](https://github.com/nxenon)

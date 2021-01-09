@@ -43,4 +43,4 @@ and ...
 Documents
 ----
 
-- [![Docs Directory]()](https://github.com/xegtor/xegtor/tree/master/docs)
+- [Docs Directory](https://github.com/xegtor/xegtor/tree/master/docs)
