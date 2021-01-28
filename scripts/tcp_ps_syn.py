@@ -30,7 +30,6 @@ class TcpSynPortScanner():
             self.timeout = float(timeout)
         except ValueError :
             error_msg = 'error : invalid timeout [e.g 0.1] [--script-help or -sh for help]'
-            print(error_msg)
             logger.log(error_msg)
             exit()
 
@@ -43,11 +42,9 @@ class TcpSynPortScanner():
         self.ports_list = [] # ports which should be scanned
 
         target_header_msg = 'target : ' + self.target_ip
-        print(target_header_msg)
         logger.log(target_header_msg)
 
         timeout_header_msg = 'timeout : ' + str(self.timeout)
-        print(timeout_header_msg)
         logger.log(timeout_header_msg)
 
         self.check_port() # check port argument and adds ports in self.ports_list var
@@ -60,14 +57,12 @@ class TcpSynPortScanner():
                 thread.start()
         except KeyboardInterrupt :
             attack_stop_msg = 'Attack stopped !'
-            print(attack_stop_msg)
             logger.log(attack_stop_msg)
             exit()
 
         sleep(1)
         for op in self.open_ports_list :
             open_port_msg = '[+] Port ' + str(op) + '/TCP is open'
-            print(open_port_msg)
             logger.log(open_port_msg)
 
     def check_port(self):
@@ -81,7 +76,6 @@ class TcpSynPortScanner():
                 except:
                     print()
                     error_msg = 'error : invalid port ---> e.g 80,22 or 1-65535 [--script-help or -sh for help]'
-                    print(error_msg)
                     logger.log(error_msg)
                     exit()
                 else:
@@ -91,7 +85,7 @@ class TcpSynPortScanner():
                     self.ports_list.append(int(p))
                     print(p + ' ',end='')
 
-            logger.log('ports : ' + str(self.ports_list))
+            logger.log('ports : ' + str(self.ports_list) ,print_log=False)
 
         elif '-' in self.port_argument : # for ports range
             try :
@@ -100,13 +94,11 @@ class TcpSynPortScanner():
             except :
                 print()
                 error_msg = 'error : invalid port ---> e.g 80,22 or 1-65535 [--script-help or -sh for help]'
-                print(error_msg)
                 logger.log(error_msg)
                 exit()
             else:
                 self.ports_list = list(range(port_start, port_end + 1))
                 ports_range_msg = 'ports : ' + str(port_start) + ' to ' + str(port_end)
-                print(ports_range_msg)
                 logger.log(ports_range_msg)
 
         else: # for single port
@@ -115,7 +107,6 @@ class TcpSynPortScanner():
             except ValueError:
                 print()
                 error_msg = 'error : invalid port ---> e.g 80,22 or 1-65535 [--script-help or -sh for help]'
-                print(error_msg)
                 logger.log(error_msg)
                 exit()
             else:
