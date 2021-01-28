@@ -32,7 +32,6 @@ class TcpAckPortScanner:
             self.timeout = float(timeout)
         except ValueError :
             error_msg = 'error : invalid timeout [e.g 0.1] [--script-help or -sh for help]'
-            print(error_msg)
             logger.log(error_msg)
             exit()
 
@@ -46,11 +45,9 @@ class TcpAckPortScanner:
         self.ports_list = [] # ports which should be scanned
 
         target_header_msg = 'target : ' + self.target_ip
-        print(target_header_msg)
         logger.log(target_header_msg)
 
         timeout_header_msg = 'timeout : ' + str(self.timeout)
-        print(timeout_header_msg)
         logger.log(timeout_header_msg)
 
         self.check_port() # check port argument and adds ports in self.ports_list var
@@ -63,7 +60,6 @@ class TcpAckPortScanner:
                 t.start()
             except KeyboardInterrupt :
                 attack_stop_msg = 'Attack stopped !'
-                print(attack_stop_msg)
                 logger.log(attack_stop_msg)
                 exit()
 
@@ -83,7 +79,6 @@ class TcpAckPortScanner:
                 except:
                     print()
                     error_msg = 'error : invalid port ---> e.g 80,22 or 1-65535 [--script-help or -sh for help]'
-                    print(error_msg)
                     logger.log(error_msg)
                     exit()
                 else:
@@ -93,7 +88,7 @@ class TcpAckPortScanner:
                     self.ports_list.append(int(p))
                     print(p + ' ',end='')
 
-            logger.log('ports : ' + str(self.ports_list))
+            logger.log('ports : ' + str(self.ports_list) ,print_log=False)
 
         elif '-' in self.port_argument : # for ports range
             try :
@@ -102,13 +97,11 @@ class TcpAckPortScanner:
             except :
                 print()
                 error_msg = 'error : invalid port ---> e.g 80,22 or 1-65535 [--script-help or -sh for help]'
-                print(error_msg)
                 logger.log(error_msg)
                 exit()
             else:
                 self.ports_list = list(range(port_start,port_end + 1))
                 ports_range_msg = 'ports : ' + str(port_start) + ' to ' + str(port_end)
-                print(ports_range_msg)
                 logger.log(ports_range_msg)
 
         else: # for single port
@@ -117,7 +110,6 @@ class TcpAckPortScanner:
             except ValueError:
                 print()
                 error_msg = 'error : invalid port ---> e.g 80,22 or 1-65535 [--script-help or -sh for help]'
-                print(error_msg)
                 logger.log(error_msg)
                 exit()
             else:
@@ -146,27 +138,27 @@ class TcpAckPortScanner:
                     if ans[TCP].window == 0: # RST flag and 0 window size ---> closed port
                         print(' [' + Fore.RED + '-' + Fore.RESET + '] Port ' + Fore.MAGENTA + str(port) + Fore.RESET +'/TCP is' + Fore.RED +  ' closed !\n' + Fore.RESET ,end='')
                         open_port_msg = '[-] Port ' + str(port) + '/TCP is closed !'
-                        logger.log(open_port_msg)
+                        logger.log(open_port_msg ,print_log=False)
                     elif ans[TCP].window > 0 : # RST flas and + window size ---> open port
                         print(' [' + Fore.GREEN + '+' + Fore.RESET + '] Port ' + Fore.MAGENTA + str(port) + Fore.RESET + '/TCP is' + Fore.GREEN + ' open !\n' + Fore.RESET ,end='')
                         open_port_msg = '[+] Port ' + str(port) + '/TCP is open !'
-                        logger.log(open_port_msg)
+                        logger.log(open_port_msg ,print_log=False)
                     else :
                         print(' [' + Fore.LIGHTWHITE_EX + '?' + Fore.RESET + '] Port ' + Fore.MAGENTA + str(port) + Fore.RESET + '/TCP is' + Fore.LIGHTWHITE_EX + ' unfiltered !\n' + Fore.RESET ,end='')
                         open_port_msg = '[?] Port ' + str(port) + '/TCP is unfiltered !'
-                        logger.log(open_port_msg)
+                        logger.log(open_port_msg ,print_log=False)
 
     def get_sf_firewall_state(self):
         # if stateful firewall exists print message
         if (self.is_firewall['exists'] is False) and (self.is_firewall['scan_is_finished'] == True) :
             stateful_firewall_existence_msg = ' there is no stateful firewall'
             print(Fore.GREEN + stateful_firewall_existence_msg + Fore.RESET)
-            logger.log(stateful_firewall_existence_msg)
+            logger.log(stateful_firewall_existence_msg ,print_log=False)
 
         elif (self.is_firewall['exists'] is not None) and (self.is_firewall['scan_is_finished'] == True) :
             stateful_firewall_existence_msg = 'maybe there is a stateful firewall'
             print(Fore.RED + stateful_firewall_existence_msg + Fore.RESET)
-            logger.log(stateful_firewall_existence_msg)
+            logger.log(stateful_firewall_existence_msg ,print_log=False)
 
     def __del__(self):
         # when scan is finished add a log delimiter into log file
