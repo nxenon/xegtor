@@ -30,7 +30,6 @@ class ArpPing:
         except ValueError :
             error_msg = 'error : timeout must be float or integer e.g 3.5 [--script-help or -sh for help]'
             print()
-            print(error_msg)
             logger.log(error_msg)
             exit()
 
@@ -48,19 +47,16 @@ class ArpPing:
             pass
         else:
             error_msg = 'Invalid Range : e.g. 192.168.1.0/24 [--script-help or -sh for help]'
-            print(error_msg)
             logger.log(error_msg)
             exit()
 
     def run_arp_ping(self):
         dest = 'ff:ff:ff:ff:ff:ff'
         header = 'Scanning... --> timeout : ' + str(self.timeout) + ' secs'
-        print(header)
         logger.log(header)
         ans, unans = srp(Ether(dst=dest) / ARP(pdst=self.ip_range), timeout=self.timeout,verbose=1)
         for a in ans:
             answer = 'IP : ' + a[1].psrc + ' ,Mac : ' + a[1].hwsrc
-            print(answer)
             logger.log(answer)
 
     def __del__(self):
