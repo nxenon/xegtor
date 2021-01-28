@@ -43,25 +43,25 @@ This file contains xegtor attacks and scanning logs {to_replace_script_name}
             header = header.replace(' {to_replace_script_name}' ,script_msg)
         else:
             header = header.replace(' {to_replace_script_name}' ,'')
-        self.log(header)
+        self.log(header ,print_log=False)
 
     def add_script_name(self ,script_name):
         msg = 'Script : ' + script_name
-        self.log(msg)
+        self.log(msg ,print_log=False)
 
     def add_log_delimiter(self):
         delimiter = '\n*--------------------------------*\n'
-        self.log(delimiter)
+        self.log(delimiter ,print_log=False)
 
     def add_time(self):
         time_now = datetime.datetime.now()  # time in log
         time_now_formatted = time_now.strftime('%Y-%m-%d %H:%M:%S')
         time = 'time : ' + time_now_formatted
-        self.log(time)
+        self.log(time ,print_log=False)
 
     def add_log_path(self):
         msg = 'Log Path : ' + self.log_file
-        self.log(msg)
+        self.log(msg ,print_log=False)
 
     def check_logs(self):
         from main.design.log_manager import LogManager
