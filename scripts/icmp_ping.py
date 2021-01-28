@@ -34,7 +34,6 @@ class IcmpPingScan():
         logger.add_time()
 
         scanning_msg = 'scanning...'
-        print(scanning_msg)
         logger.log(scanning_msg)
 
         self.get_ip_list()
@@ -64,7 +63,6 @@ class IcmpPingScan():
         error_code = subprocess.run(['ping',self.count_param,'1',str(ip)],stdout=subprocess.DEVNULL).returncode
         if error_code == 0 :
             host_is_up_msg = '[+] host ' + str(ip) + ' is up'
-            print(host_is_up_msg)
             logger.log(host_is_up_msg)
 
     def __del__(self):
