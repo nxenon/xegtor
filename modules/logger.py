@@ -15,7 +15,9 @@ class Logger:
         self.logger = logging.getLogger()
         self.logger.setLevel(logging.DEBUG)
 
-    def log(self ,message):
+    def log(self ,message ,print_log=True):
+        if (print_log):
+            print(message)
         try:
             self.logger.info(message)
             if (self.log_file != 'logs/xegtor'):
