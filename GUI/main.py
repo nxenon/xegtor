@@ -142,6 +142,17 @@ def show_examples():
 def page_not_found(e):
     return render_template('404_error.html'), 404
 
+@app_main.errorhandler(500)
+def internal_error(e):
+    msg = '''
+    <h1 style="text-align:center">Internal Server Error (500)</h1>
+    <br>
+    <h2 style="text-align:center">This might be for bad arguments or bad configuration</h2>
+    <br>
+    <h2 style="text-align:center">You can restart the script</h2>
+    '''
+    return msg,500
+
 @app_main.after_request
 def add_header(response):
     response.headers['Cache-Control'] = 'no-cache' # tell browser not to cache contents
