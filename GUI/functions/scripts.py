@@ -20,18 +20,27 @@ def scripts():
     script_names = get_scripts_names()
     script_names_desc = re.findall(scripts_names_file_regex,script_names)
 
-    text = '''<br><br><br><br><div class="script_table" style="text-align : center">
-    <table class="center">
-    <tr>
-        <th><h2><pre>       Link      </pre></h2></th>
-        <th><h2><pre>   Description   </pre></h2></th>
-        <th><h2><pre>   Script Name   </pre></h2></th>
-    </tr>
-    <br>
+    text = '''
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header">
+                <h4 class="card-title">Scripts</h4>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-striped table-responsive">
+                        <thead>
+                            <tr>
+                                <th>Link</th>   
+                                <th>Description</th>
+                                <th>Script Name</th>
+                            </tr>
+                        </thead>
+                        <tbody>
     '''
     for s in script_names_desc :
-        text += '<tr><td>' + '<pre>    <a href="/attack?script=' + s[0] + '"><h3>use script</h3></a>    </pre></td><td><pre>    <h3>' + s[1] + '</h3>     </pre></td>' + '<td><pre>    <b><h3>' + s[0] + '</h3></b></tr>'
+        text += '<tr><td>' + '<a class="btn btn-success light sharp" href="/attack?script=' + s[0] + '"><i class="flaticon-381-link"></i></a></td><td>' + s[1] + '</td>' + '<td>' + s[0] + '</tr>'
 
-    text += '</table></div>'
+    text += '</tbody></table></div>'
     final_page = page.replace('{to_replace_text}',text)
     return final_page

@@ -1,32 +1,120 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <link rel="icon" type="image/png" href="./static/img/title_logo.png">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Login</title>
-    <link rel="stylesheet" href="./static/css/login.css">
-</head>
-<body>
-<div class="top-bar">
-    <img class="top-bar" src="./static/img/xegtor_top_label.jpg">
-</div>
-<br>
-<form action="/check_login" method="post">
-    <div class="container">
-        <h2>Login Form</h2>
-        <label for="uname"><b>Username</b></label>
-        <input type="text" placeholder="Enter Username" name="user" required>
-        <br>
-        <label for="psw"><b>Password</b></label>
-        <input type="password" placeholder="Enter Password" name="passw" required>
-        <br>
-        <button class="login-button" style="font-size: 20px" type="submit">Login</button>
-        <br>
-        <br>
-        <span class="psw">Forgot <a href="/forgotpass" target="_blank">password?</a></span>
-    </div>
-    {to_replace_error}
-</form>
+<html lang="en" dir="ltr">
 
+<head>
+
+    <meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="keywords" content="Xector">
+	<meta name="author" content="Xenon">
+	<meta name="robots" content="Xector">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="Xector">
+	<meta property="og:title" content="Xector">
+	<meta property="og:description" content="Xector">
+	
+	<!-- PAGE TITLE HERE -->
+	<title>Xector | Login</title>
+	
+	<link rel="stylesheet" href="./static/css/chartist.min.css">
+	<link href="./static/css/nice-select.css" rel="stylesheet">
+	<link href="./static/css/bootstrap-datetimepicker.min.css" rel="stylesheet">
+	<!-- Style css -->
+    <link href="./static/css/style.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <div class="authincation h-100">
+        <div class="container h-100">
+            <div class="row justify-content-center h-100 align-items-center">
+                <div class="col-md-6">
+                    <div class="authincation-content">
+                        <div class="row no-gutters">
+                            <div class="col-xl-12">
+                                <div class="auth-form">
+									<div class="text-center mb-3">
+										<a href="index.html"><img src="images/logo-full.png" alt=""></a>
+									</div>
+                                    <h4 class="text-center mb-4">Sign in your account</h4>
+                                    <form action="/check_login" method="post">
+                                        <div class="mb-3">
+                                            <label class="mb-1"><strong>Username</strong></label>
+                                            <input type="text" class="form-control" placeholder="Enter Username" name="user" required>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label class="mb-1"><strong>Password</strong></label>
+                                            <input type="password" class="form-control" placeholder="Enter Password" name="passw" required>
+                                        </div>
+                                        <div class="row d-flex justify-content-between mt-4 mb-2">
+                                            <div class="mb-3">
+                                               <div class="form-check custom-checkbox ms-1">
+													<input type="checkbox" class="form-check-input" id="basic_checkbox_1">
+													<label class="form-check-label" for="basic_checkbox_1">Remember my preference</label>
+												</div>
+                                            </div>
+                                            <div class="mb-3">
+                                                <a href="/forgotpass">Forgot Password?</a>
+                                            </div>
+                                        </div>
+                                        <div class="text-center">
+                                            <button type="submit" class="btn btn-primary btn-block login-button">Sign Me In</button>
+                                        </div>
+                                        <div class="text-center">
+                                            {to_replace_error}
+                                        </div>
+                                    </form>
+                                    <!-- <div class="new-account mt-3">
+                                        <p>Don't have an account? <a class="text-primary" href="#">Sign up</a></p>
+                                    </div> -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--**********************************
+        Scripts
+    ***********************************-->
+    <!-- Required vendors -->
+    <script src="./static/js/global.min.js"></script>
+	<script src="./static/js/Chart.bundle.min.js"></script>
+	<script src="./static/js/jquery.nice-select.min.js"></script>
+	
+	<!-- Chart piety plugin files -->
+    <script src="./static/js/jquery.peity.min.js"></script>
+	
+	<!-- Apex Chart -->
+	<script src="./static/js/apexchart.js"></script>
+	
+	<script src="./static/js/moment.js"></script>
+	<script src="./static/js/bootstrap-datetimepicker.min.js"></script>
+	
+	<!-- Dashboard 1 -->
+	<script src="./static/js/dashboard/dashboard-1.js"></script>
+    <script src="./static/js/custom.min.js"></script>
+	<script src="./static/js/deznav-init.js"></script>
+	<!-- <script src="js/demo.js"></script> -->
+	<script>
+		$(function () {
+			$('#datetimepicker').datetimepicker({
+				inline: true,
+			});
+		});
+		
+		$(document).ready(function(){
+			$(".booking-calender .fa.fa-clock-o").removeClass(this);
+			$(".booking-calender .fa.fa-clock-o").addClass('fa-clock');
+		});
+	</script>
+	<script>
+		// jQuery(document).ready(function(){
+		// 	setTimeout(function(){
+		// 		dezSettingsOptions.version = 'dark';
+		// 		new dezSettings(dezSettingsOptions);
+		// 	},1500)
+		// });
+	</script>
 </body>
 </html>

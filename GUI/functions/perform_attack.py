@@ -19,10 +19,13 @@ def show_arguments():
     file = open('GUI/functions/arguments.json', 'r')
     arguments_in_file = json.load(file)
     script_name = request.args.get('script')
-    content += '<br><br><h2 style="text-align : center">' + script_name + '</h2>' # show script name in top of the page
+    content += '<h2 class="text-center">' + script_name + '</h2></div>' # show script name in top of the page
 
     url_args_names = list(request.args)
-    content += '<br><br>'
+    content += '''
+    <div class="card-body">
+        <div class="my-3">
+    '''
     arguments_and_values = {} # store arguments and their values into a dictionary to pass in run_attack function
     for arg in url_args_names :
         if arg != 'script' :
@@ -33,8 +36,9 @@ def show_arguments():
 
             content += '<h4 style="text-align : center">' + arg + ' : ' + argument_value + '</h4>'
             arguments_and_values[arg.lower()] = argument_value
-
-    content += '<br><br>'
+    content += '''
+    </div>
+    '''
     try:
         run_attack(script_name=script_name, arguments_dict=arguments_and_values)
     except Exception:
