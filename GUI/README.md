@@ -17,11 +17,11 @@ GUI Usage
 Screenshots
 ----
 
-![Screenshot](https://user-images.githubusercontent.com/61124903/101089818-f2511c80-35ca-11eb-83bd-30b1c17e3fab.png)
+![Screenshot](https://user-images.githubusercontent.com/61124903/125171413-668b1880-e1c9-11eb-8500-bbb8f6d83b4f.png)
 
-![Screenshot](https://user-images.githubusercontent.com/61124903/103424684-ec972880-4bc2-11eb-8838-6b2bfb47c09c.png)
+![Screenshot](https://user-images.githubusercontent.com/61124903/125171419-6be86300-e1c9-11eb-9da4-adc72b2eb805.png)
 
-![Screenshot](https://user-images.githubusercontent.com/61124903/103485772-07a9a880-4e0e-11eb-8e7b-0abf29dc0bfd.png)
+![Screenshot](https://user-images.githubusercontent.com/61124903/125171401-4eb39480-e1c9-11eb-8b08-135298a14186.png)
 
 Notes
 ----
