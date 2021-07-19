@@ -4,7 +4,7 @@ from colorama import Fore
 from random import randint
 
 # Version
-app_version = 'v1.0.0'
+app_version = 'v1.2.0'
 version_text = '{version : ' + app_version + '}'
 # Link to github
 github_link = 'https://github.com/xegtor/xegtor'
