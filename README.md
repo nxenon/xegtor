@@ -55,6 +55,6 @@ Contribution
 if you wanna contribute ,DM for more information.
 
 - Email : khodexenon@gmail.com
-- Discord Server : [Xegtor Discord](https://discord.gg/y7S9PmedTt)
-- Discord (owner) : Xenon#3070
+- Discord Server : [Xegtor Discord](https://discord.gg/DF5JruttsD)
+- Discord (owner) : Xenon#1010
 - Github : [nxenon](https://github.com/nxenon)
