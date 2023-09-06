@@ -49,12 +49,3 @@ Scripts Usage
     sudo python3 xegtor.py --script script_name [arguments]
 
 - [Scripts README](https://github.com/xegtor/xegtor/blob/master/scripts/README.md)
-
-Contribution
-----
-if you wanna contribute ,DM for more information.
-
-- Email : khodexenon@gmail.com
-- Discord Server : [Xegtor Discord](https://discord.gg/DF5JruttsD)
-- Discord (owner) : Xenon#8854
-- Github : [nxenon](https://github.com/nxenon)
